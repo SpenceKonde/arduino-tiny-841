@@ -59,17 +59,17 @@
 #endif
 
 #if CORE_PWM_COUNT >= 5
-#define Pwm4_SetCompareOutputMode                 PwmTimer3_( CORE_PWM4_TIMER, SetCompareOutputMode, CORE_PWM3_CHANNEL )
+#define Pwm4_SetCompareOutputMode                 PwmTimer3_( CORE_PWM4_TIMER, SetCompareOutputMode, CORE_PWM4_CHANNEL )
 #define Pwm4_Disconnected                         PwmTimer2_( CORE_PWM4_TIMER, Disconnected )
 #define Pwm4_Clear                                PwmTimer2_( CORE_PWM4_TIMER, Clear )
-#define Pwm4_SetOutputCompareMatch                PwmTimer3_( CORE_PWM4_TIMER, SetOutputCompareMatch, CORE_PWM3_CHANNEL )
+#define Pwm4_SetOutputCompareMatch                PwmTimer3_( CORE_PWM4_TIMER, SetOutputCompareMatch, CORE_PWM4_CHANNEL )
 #endif
 
-#if CORE_PWM_COUNT >= 4
-#define Pwm5_SetCompareOutputMode                 PwmTimer3_( CORE_PWM5_TIMER, SetCompareOutputMode, CORE_PWM3_CHANNEL )
+#if CORE_PWM_COUNT >= 6
+#define Pwm5_SetCompareOutputMode                 PwmTimer3_( CORE_PWM5_TIMER, SetCompareOutputMode, CORE_PWM5_CHANNEL )
 #define Pwm5_Disconnected                         PwmTimer2_( CORE_PWM5_TIMER, Disconnected )
 #define Pwm5_Clear                                PwmTimer2_( CORE_PWM5_TIMER, Clear )
-#define Pwm5_SetOutputCompareMatch                PwmTimer3_( CORE_PWM5_TIMER, SetOutputCompareMatch, CORE_PWM3_CHANNEL )
+#define Pwm5_SetOutputCompareMatch                PwmTimer3_( CORE_PWM5_TIMER, SetOutputCompareMatch, CORE_PWM5_CHANNEL )
 #endif
 
 #if CORE_PWM_COUNT >= 7
