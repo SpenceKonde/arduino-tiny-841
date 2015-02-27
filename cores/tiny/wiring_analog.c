@@ -131,7 +131,7 @@ void analogWrite(uint8_t pin, int val)
     #endif
 
     #if CORE_PWM_COUNT >= 6
-      if ( pin == CORE_PWM4_PIN )
+      if ( pin == CORE_PWM5_PIN )
       {
         Pwm5_SetCompareOutputMode( Pwm5_Clear );
         Pwm5_SetOutputCompareMatch( val );
