@@ -1,4 +1,4 @@
-arduino-tiny
+arduino-tiny-841
 ============
 
 A fork of shimniok's ( github.com/shimniok ) fork of arduino-tiny, which made an attempt to support the Tiny841. All work appears to have stopped on that core, and it was never in a state where sketches could be compiled (it looks like the initial work was never completed). 
