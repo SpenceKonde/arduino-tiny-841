@@ -7,15 +7,15 @@ This fork aims to finish what he started and add working support for the ATtiny8
 
 Status
 ===========
-Serial and Serial 1 work. 
-INPUT_PULLUP works
-millis and micros work
-analogRead() works
-PWM does not work (which sort of defeats the whole point of the part)
-tone is untested. 
-SPI is untested.
-I2C is untested.
-pin change interrupts almost certainly don't work. 
+*Serial and Serial 1 work. 
+*INPUT_PULLUP works
+*millis and micros work
+*analogRead() works
+*PWM does not work (which sort of defeats the whole point of the part)
+*tone is untested. 
+*SPI is untested.
+*I2C is untested.
+*pin change interrupts almost certainly don't work. 
 
 
 Requirements
