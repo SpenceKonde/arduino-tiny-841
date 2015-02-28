@@ -23,6 +23,7 @@
 
   Modified 28-08-2009 for attiny84 R.Wiersma
   Modified 14-10-2009 for attiny45 Saposoft
+  Modified 26-02-2015 for attiny841 and other parts that use the PUEx registers. 
 */
 
 #ifndef Pins_Arduino_h
@@ -42,7 +43,11 @@
 #define PORT_A_ID 1
 #define PORT_B_ID 2
 #endif
-
+#if defined( __AVR_ATtinyX41__ )
+#define USE_PUE_REGISTER 1
+#define PORT_A_ID 1
+#define PORT_B_ID 2
+#endif
 #if defined( __AVR_ATtinyX5__ )
 #define PORT_B_ID 1
 #endif
@@ -55,13 +60,17 @@
 #define TIMER0B 2
 #define TIMER1A 3
 #define TIMER1B 4
+#define TIMER2A 5
+#define TIMER2B 6
 
 //changed it to uint16_t to uint8_t
 extern const uint8_t PROGMEM port_to_mode_PGM[];
 extern const uint8_t PROGMEM port_to_input_PGM[];
 extern const uint8_t PROGMEM port_to_output_PGM[];
 extern const uint8_t PROGMEM port_to_pcmask_PGM[];
-
+#if defined( USE_PUE_REGISTER )
+extern const uint8_t PROGMEM port_to_pullup_PGM[];
+#endif
 extern const uint8_t PROGMEM digital_pin_to_port_PGM[];
 // extern const uint8_t PROGMEM digital_pin_to_bit_PGM[];
 extern const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[];
@@ -76,11 +85,16 @@ extern const uint8_t PROGMEM digital_pin_to_timer_PGM[];
 #define digitalPinToBitMask(P) ( pgm_read_byte( digital_pin_to_bit_mask_PGM + (P) ) )
 #define digitalPinToTimer(P) ( pgm_read_byte( digital_pin_to_timer_PGM + (P) ) )
 #define analogInPinToBit(P) (P)
+
 // in the following lines modified pgm_read_word in pgm_read_byte, word doesn't work on attiny45
 #define portOutputRegister(P) ( (volatile uint8_t *)( pgm_read_byte( port_to_output_PGM + (P))) )
 #define portInputRegister(P) ( (volatile uint8_t *)( pgm_read_byte( port_to_input_PGM + (P))) )
 #define portModeRegister(P) ( (volatile uint8_t *)( pgm_read_byte( port_to_mode_PGM + (P))) )
 #define portPcMaskRegister(P) ( (volatile uint8_t *)( pgm_read_byte( port_to_pcmask_PGM + (P))) )
+
+#if defined( USE_PUE_REGISTER )
+#define portPullupRegister(P) ( (volatile uint8_t *)( pgm_read_byte( port_to_pullup_PGM + (P))) )
+#endif
 
 #if defined(__AVR_ATtinyX5__)
 #define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 5) ? (&GIMSK) : ((uint8_t *)NULL))
