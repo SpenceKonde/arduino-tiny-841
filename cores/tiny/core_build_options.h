@@ -65,7 +65,7 @@
 
 
 /*=============================================================================
-  Build options for the ATtiny84 processor
+  Build options for the ATtiny841 processor
 =============================================================================*/
 
 #if defined( __AVR_ATtiny441__ ) || defined( __AVR_ATtiny841__ )
@@ -90,7 +90,7 @@
 
 #define HAVE_ADC                                  1
 
-#define DEFAULT_TO_TINY_DEBUG_SERIAL              1
+#define DEFAULT_TO_TINY_DEBUG_SERIAL              0
 
 #endif
 
