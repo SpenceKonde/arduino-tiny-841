@@ -12,7 +12,7 @@ Status
 * INPUT_PULLUP works
 * millis and micros work
 * analogRead() works
-* PWM does not work (which sort of defeats the whole point of the part)
+* PWM does not work (which sort of defeats the whole point of the part), except on timer 0. 
 * tone is untested. 
 * SPI is untested.
 * I2C is untested.
