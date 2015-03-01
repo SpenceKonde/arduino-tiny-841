@@ -13,6 +13,7 @@ Status
 * millis and micros work
 * analogRead() works
 * PWM works on all 6 channels. 
+* EEPROM works.
 * tone is untested. 
 * SPI is untested - but should work. Registers are identical to the mega328. 
 * I2C is untested - note that it only supports slave mode. 
@@ -26,7 +27,7 @@ Requirements
 
 You must update the arduino compiler toolchain. 
 
-I use Arduino 1.0.6 to start with. 
+I use Arduino 1.0.6 as a base. 
 
 Download and install Atmel Studio 6.2, and copy the toolchain from that ontop of your existing Arduino toolchain (note - on recent versions of windows, you may have to jump through hoops to get windows to allow you to modify those files - Since Vista, windows UAC prevents modification of the contents of Program Files folders by default. Information on how to deal with this is readily available online and is beyond the scope of this document). 
 
