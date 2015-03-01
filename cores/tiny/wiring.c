@@ -217,6 +217,17 @@ static void initToneTimerInternal(void)
   ToneTimer_ClockSelect( ToneTimer_Prescale_Index );
 }
 
+static void initTimer841(void) 
+{
+  Timer2_ClockSelect(0);
+  TOCPMSA0=0b00010000;
+  TOCPMSA1=0b10100100;
+  Timer2_SetWaveformGenerationMode(1);
+  Timer2_ClockSelect(3);
+
+}
+
+
 void initToneTimer(void)
 {
   // Ensure the timer is in the same state as power-up
@@ -250,7 +261,12 @@ void init(void)
   // Initialize the timer used for Tone
   #if defined( INITIALIZE_SECONDARY_TIMERS ) && INITIALIZE_SECONDARY_TIMERS
     initToneTimerInternal();
+    #if defined(__AVR_ATtinyX41__) 
+      initTimer841();
+    #endif
   #endif
+
+  
 
   // Initialize the ADC
   #if defined( INITIALIZE_ANALOG_TO_DIGITAL_CONVERTER ) && INITIALIZE_ANALOG_TO_DIGITAL_CONVERTER
