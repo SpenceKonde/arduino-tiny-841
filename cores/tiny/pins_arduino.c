@@ -24,7 +24,7 @@
   Modified 28-08-2009 for attiny84 R.Wiersma
   Modified 09-10-2009 for attiny45 A.Saporetti
   Modified for Atmel ATTiny2313 mcu by René Bohne
-  Added Tiny841 Spence Konde
+
   Corrected 17-05-2010 for ATtiny84 B.Cook ...
 
     The default analog_reference leaves chip pin 13 (digital pin 10; PA0) 
@@ -405,20 +405,20 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
   _BV(3), //reset
 };
 
-const uint8_t PROGMEM digital_pin_to_timer_PGM[] = 
-{
-  NOT_ON_TIMER,
-  NOT_ON_TIMER,
-  TIMER2B, /* TOCC7 */
-  TIMER2A, /* TOCC6 */
-  TIMER1B, /* TOCC5 */
-  TIMER0A, /* TOCC4 - this is shared with serial 1*/
-  TIMER0B, /* TOCC3 - this is shared with serial 1 so let's give it the least desirable timer */
-  TIMER1A, /* TOCC2 */
-  NOT_ON_TIMER, //This could have pwm, but it's serial 0, and we only get PWM on 6 of the 8 pins at once.
-  NOT_ON_TIMER, //see above.
-  NOT_ON_TIMER,
-  NOT_ON_TIMER,
-};
+//const uint8_t PROGMEM digital_pin_to_timer_PGM[] = 
+//{
+//  NOT_ON_TIMER,
+//  NOT_ON_TIMER,
+//  TIMER2B, /* TOCC7 */
+//  TIMER2A, /* TOCC6 */
+//  TIMER1B, /* TOCC5 */
+//  TIMER0A, /* TOCC4 - this is shared with serial 1*/
+//  TIMER0B, /* TOCC3 - this is shared with serial 1 so let's give it the least desirable timer */
+//  TIMER1A, /* TOCC2 */
+//  NOT_ON_TIMER, //This could have pwm, but it's serial 0, and we only get PWM on 6 of the 8 pins at once.
+//  NOT_ON_TIMER, //see above.
+//  NOT_ON_TIMER,
+//  NOT_ON_TIMER,
+//};
 
 #endif
