@@ -24,13 +24,13 @@
   Modified 28-08-2009 for attiny84 R.Wiersma
   Modified 09-10-2009 for attiny45 A.Saporetti
   Modified for Atmel ATTiny2313 mcu by René Bohne
-  Added Tiny841 Spence Konde
   Corrected 17-05-2010 for ATtiny84 B.Cook ...
 
     The default analog_reference leaves chip pin 13 (digital pin 10; PA0) 
     unconnected.  So the pin can be set to a non-floating state and so the 
     pin can be used as another digital pin, support for digital pin 10 was 
     added.
+ Added Tiny841 28-02-2015 Spence Konde
 */
 
 #include <avr/io.h>
