@@ -467,27 +467,18 @@ timer0_com_t;
 __attribute__((always_inline)) static inline void Timer0_SetCompareOutputModeA( timer0_com_t com )
 {
   TCCR0A = (TCCR0A & ~MASK2(COM0A1,COM0A0)) | (com << COM0A0);
-  #if defined( __AVR_ATtinyX41__ )
-  TOCPMCOE = (TOCPMCOE & 0b11110111)|0b00001000;
-  #endif
 }
 
 __attribute__((always_inline)) static inline void Timer0_SetCompareOutputModeB( timer0_com_t com )
 {
 
   TCCR0A = (TCCR0A & ~MASK2(COM0B1,COM0B0)) | (com << COM0B0);
-  #if defined( __AVR_ATtinyX41__ )
-  TOCPMCOE = (TOCPMCOE & 0b11101111)|0b00010000;
-  #endif
 
 }
 
 __attribute__((always_inline)) static inline void Timer0_DisconnectOutputs( void )
 {
   TCCR0A &= ~MASK4(COM0A1,COM0A0,COM0B1,COM0B0);
-  #if defined( __AVR_ATtinyX41__ )
-  TOCPMCOE = (TOCPMCOE & 0b11100111); 
-  #endif
 }
 
 #define TIMER0_MAXIMUM_OCR        (255)
@@ -638,25 +629,16 @@ timer1_com_t;
 __attribute__((always_inline)) static inline void Timer1_SetCompareOutputModeA( timer1_com_t com )
 {
   TCCR1A = (TCCR1A & ~MASK2(COM1A1,COM1A0)) | (com << COM1A0);
-  #if defined( __AVR_ATtinyX41__ )
-  TOCPMCOE = (TOCPMCOE & 0b11111011)|0b00000100;
-  #endif
 }
 
 __attribute__((always_inline)) static inline void Timer1_SetCompareOutputModeB( timer1_com_t com )
 {
   TCCR1A = (TCCR1A & ~MASK2(COM1B1,COM1B0)) | (com << COM1B0);
-  #if defined( __AVR_ATtinyX41__ )
-  TOCPMCOE = (TOCPMCOE & 0b11011111)|0b00100000;
-  #endif
 }
 
 __attribute__((always_inline)) static inline void Timer1_DisconnectOutputs( void )
 {
   TCCR1A &= ~MASK4(COM1A1,COM1A0,COM1B1,COM1B0);
-  #if defined( __AVR_ATtinyX41__ )
-  TOCPMCOE = (TOCPMCOE & 0b11011011);
-  #endif
 }
 
 #define TIMER1_MAXIMUM_OCR        (65535)
@@ -807,23 +789,16 @@ timer2_com_t;
 __attribute__((always_inline)) static inline void Timer2_SetCompareOutputModeA( timer2_com_t com )
 {
   TCCR2A = (TCCR2A & ~MASK2(COM2A1,COM2A0)) | (com << COM2A0);
-  #if defined( __AVR_ATtinyX41__ )
-  TOCPMCOE = (TOCPMCOE & 0b10111111)|0b01000000;
-  #endif
 }
 
 __attribute__((always_inline)) static inline void Timer2_SetCompareOutputModeB( timer2_com_t com )
 {
   TCCR2A = (TCCR2A & ~MASK2(COM2B1,COM2B0)) | (com << COM2B0);
-  #if defined( __AVR_ATtinyX41__ )
-  TOCPMCOE = (TOCPMCOE & 0b01111111)|0b10000000;
-  #endif
 }
 
 __attribute__((always_inline)) static inline void Timer2_DisconnectOutputs( void )
 {
   TCCR2A &= ~MASK4(COM2A1,COM2A0,COM2B1,COM2B0);
-  TOCPMCOE = (TOCPMCOE & 0b00111111);
 }
 
 #define TIMER2_MAXIMUM_OCR        (65535)
