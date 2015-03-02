@@ -11,11 +11,11 @@ attiny841at16.upload.maximum_size=8192
 # Preserve EEPROM memory through the Chip Erase cycle
 # Serial program downloading (SPI) enabled
 
-attiny841at16.bootloader.low_fuses=0x7F
-attiny841at16.bootloader.high_fuses=0x99
+attiny841at16.bootloader.low_fuses=0xEE
+attiny841at16.bootloader.high_fuses=0xD4
 attiny841at16.bootloader.extended_fuses=0xFF
 attiny841at16.bootloader.path=empty
-attiny841at16.bootloader.file=empty4313at16.hex
+attiny841at16.bootloader.file=empty841at16.hex
 
 attiny841at16.build.mcu=attiny841
 attiny841at16.build.f_cpu=16000000L
@@ -40,7 +40,7 @@ attiny841at8.bootloader.low_fuses=0xE2
 attiny841at8.bootloader.high_fuses=0xD7
 attiny841at8.bootloader.extended_fuses=0xFF
 attiny841at8.bootloader.path=empty
-attiny841at8.bootloader.file=empty84at16.hex
+attiny841at8.bootloader.file=empty841at8.hex
 
 attiny841at8.build.mcu=attiny841
 attiny841at8.build.f_cpu=8000000L
