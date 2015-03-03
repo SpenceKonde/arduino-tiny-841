@@ -16,9 +16,9 @@ Status
 * EEPROM works.
 * tone is untested. 
 * SPI is untested - but should work. Registers are identical to the mega328. 
-* I2C is untested - note that it only supports slave mode. 
-* pin change interrupts are untested.
-* Something is wrong with the upload process - it's SLOOOOOOW using Arduino-as-ISP. There seems to be a very long period of time at the start of upload where it engages in some sort of repetitive action, before eventually going ahead and uploading the compiled sketch. 
+* I2C/TWI hardware slave needs library support. It is not the same as the master/slave TWI on mega's, and the 841 does not have a USI, so the USI I2C libraries that exist for the tinyx4/x5 won't work either. I can't make SoftI2CMaster work, but that may be due to interrupt issues. 
+* Pin change interrupts are untested (including INT0).
+* Something is wrong with the upload process using ArduinoAsISP - it's SLOOOOOOW using Arduino-as-ISP. There seems to be a very long period of time at the start of upload where it engages in some sort of repetitive action, before eventually going ahead and uploading the compiled sketch. 
 * After uploading, the IDE complains that pagel and bs2 need to be defined in avrdude.conf. I can find no documentation that explains what those two settings mean or how to determine their correct values.
 
 
