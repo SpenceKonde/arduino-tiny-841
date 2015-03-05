@@ -5,6 +5,7 @@ attiny841at16.name=ATtiny841 @ 16 MHz  (external crystal; 4.3 V BOD)
 #attiny841at16.upload.using=tiny:dragon
 attiny841at16.upload.using=tiny:avrispv2
 attiny841at16.upload.maximum_size=8192
+attiny841at8.upload.tool=arduino:avrdude
 
 # Frequency 16.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
 # Brown-out detection level at VCC=4.3 V
@@ -30,6 +31,7 @@ attiny841at8.name=ATtiny841 @ 8 MHz  (internal oscillator; BOD disabled)
 #attiny841at8.upload.using=tiny:dragon
 attiny841at8.upload.using=tiny:avrispv2
 attiny841at8.upload.maximum_size=8192
+attiny841at8.upload.tool=arduino:avrdude
 
 # Frequency 8.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
 # Brown-out detection level disabled
