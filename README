@@ -1,80 +1,91 @@
 
-Arduino-Tiny is an open source set of ATtiny "cores" for the Arduino platform.
+Arduino-Tiny-841 is a fork of the is an open source Arduino-Tiny project (by way of shimniok's fork)
 
-The Arduino platform currently supports Atmel ATmega processors. There is a need
-for the Arduino platform to work with physically smaller DIP package processors.
-The intent of this project is fulfill that need. Specifically, our goal is to
-provide a core that enables Arduino users to work with the ATtiny84 (84/44/24),
-ATtiny85 (85/45/25), and ATtiny2313 processors.
+This fork provides support for the Attiny841/441 processors. These are a
+remarkable Attiny processor in the SOIC-14 package. It is pin compatible
+with the Attiny84, however, it's onboard peripherals are much improved.
+It supports 6 PWM outputs (3 timers), has two hardware UARTs, and real
+hardware SPI (as opposed to the USI used in the '84 and '85), as well as
+having an ADC channel on every pin.  
 
 For more information about Arduino, see the website at: http://www.arduino.cc/
 
 
 INSTALLATION
 
-First ensure the Arduino software is correctly installed.
+First ensure the Arduino software is correctly installed, and that the IDE is not running during the installation process. 
 
-Next...
 
-* Ensure the Arduino IDE is NOT running.
+* Locate your Arduino Sketch folder.  This is the folder where the Arduino IDE
+  stores Sketches, typically located in your Documents folder. 
 
-* Download the Arduino-Tiny archive (ZIP-file).
+* Ensure the "hardware" folder exists under the Arduino Sketch folder. If it is not there, create it. 
 
-* Locate the Arduino Sketch folder.  This is the folder where the Arduino IDE
-  stores Sketches.
-
-* Ensure the "hardware" folder exists under the Arduino Sketch folder.  For
-  example, if the Arduino Sketch folder is...
-
-      C:\Projects\Arduino\
-
-  Ensure this folder exists...
-
-      C:\Projects\Arduino\hardware\
-
-* Extract the contents of the archive into the "hardware" folder.  For example,
+* Download Arduino-Tiny-841 from github as a ZIP file, and extract it into the 
+  "hardware" folder, or simply clone the github repo into there.  For example,
   if the Arduino Sketch folder is...
 
-      C:\Projects\Arduino
+      C:\Users\YourName\Documents\Arduino
 
   After extracting, the following files / folders should exist...
 
-      C:\Projects\Arduino\hardware\tiny\license.txt
-      C:\Projects\Arduino\hardware\tiny\Prospective Boards.txt
-      C:\Projects\Arduino\hardware\tiny\README
-      C:\Projects\Arduino\hardware\tiny\bootloaders\
-      C:\Projects\Arduino\hardware\tiny\cores\
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\LICENSE
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avrdude_conf.txt
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\Boards.txt
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\ChangeLog
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\README
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\README.md
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\platform.txt
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\programmers.txt
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\bootloaders\
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\cores\
 
   The following folder should contain the source files for the Arduino-Tiny
   core...
 
-      C:\Projects\Arduino\hardware\tiny\cores\tiny\
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\cores\
 
-* Create a new file named "boards.txt" in the tiny directory.  Following from
-  the examples above, the file would be here...
+* Locate avrdude.conf - typically in 
+  C:\Program Files (x86)\Arduino\tools\avr\etc 
 
-      C:\Projects\Arduino\hardware\tiny\boards.txt
+* If you are using Windows Vista or later, right-click avrdude.conf and
+  choose the Security tab. Select "Users", and see if there is a checkmark 
+  in the "Allow" column for "Full Control". If not, click Edit, select Users, 
+  and click the checkbox to Allow Full Control. Apply.
 
-* Open the "boards.txt" file and the "Prospective Boards.txt" file using your
-  favourite text editor.
+* Open avrdude.conf using any text editor. Copy/paste the contents of 
+  avrdude_conf.txt onto the end of avrdude.conf and save. 
 
-* Copy board entries of interest from "Prospective Boards.txt" to "boards.txt"
-  (or copy the entire contents of "Prospective Boards.txt" to "boards.txt").
-  Board entries are delineated by a long line of pound-signs.
+IF YOU ARE USING ARDUINO 1.6:
 
-* In the "boards.txt" file, change the "upload.using" entries to the
-  appropriate value for your setup.
+* open the arduino-tiny-841 folder, and create a new folder named "avr". 
+  Move the cores and bootloaders folders into "avr"
 
-* Save and close "boards.txt".  Close "Prospective Boards.txt".
+IF YOU ARE USING ARDUINO 1.0.x, you must update the compiler toolchain. 
+  
+* Download and install Atmel Studio 6.2 (available from the Atmel website). 
 
-* Start the Arduino IDE and ensure the new boards of interest are listed under
-  the [Tools] [Board] menu...
+* Locate the location of the Arduino toolchain, typically in:
 
-      "ATtiny84 @ 16 MHz  (external crystal; 4.3 V BOD)"
-      "ATtiny85 @ 8 MHz  (internal oscillator; BOD disabled)"
-      etcetera
+  C:\Program Files (x86)\Arduino\tools\avr
 
-You are now ready to use Arduino-Tiny!
+* If using Windows Vista or later, right-click avr folder, Security tab. 
+  Select "Users", and see if there is a checkmark in the "Allow" column for
+  "Full Control". If not, click Edit, select Users, and click the checkbox
+  to Allow Full Control. Apply.
+
+* Copy the AVR toolchain from Atmel Studio over the old Arduino Toolchain, 
+  replacing files when prompted. 
+
+  C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\(version)\avr8-gnu-toolchain
+
+  You must leave the old toolchain there, and copy these over it, because
+  there are files needed by Arduino in addition to the toolchain that are
+  located in the same directory. 
+
+
+
+You are now ready to use the Arduino-Tiny-841 core!
 
 
 CREDITS
@@ -89,3 +100,6 @@ Processing and Wiring.
 
 Arduino-Tiny is based on work by David A. Mellis, René Bohne, R. Wiersma,
 Alessandro Saporetti, and Brian Cook.
+
+
+Arduino-Tiny-841 is based on the work done by 'shimniok' of Github, and Spence Konde. 
