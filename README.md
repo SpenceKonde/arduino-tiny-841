@@ -5,9 +5,12 @@ A fork of shimniok's ( github.com/shimniok ) fork of arduino-tiny, which made an
 
 This fork aims to finish what he started and add working support for the ATtiny841 on Arduino. 
 
+If you installed this core prior to 3/14/2015, you must replace the previous entry in avrdude.conf with the new one. The efuse was not being read correctly. 
+
 Status
 ===========
 
+* Optiboot bootloader included
 * Serial and Serial 1 work. 
 * INPUT_PULLUP works
 * millis and micros work
@@ -16,10 +19,24 @@ Status
 * EEPROM works.
 * tone is untested. 
 * SPI is untested - but should work. Registers are identical to the mega328. 
-* I2C/TWI hardware slave needs library support. It is not the same as the master/slave TWI on mega's, and the 841 does not have a USI, so the USI I2C libraries that exist for the tinyx4/x5 won't work either. I can't make SoftI2CMaster work, but that may be due to interrupt issues. 
+* I2C/TWI hardware slave needs library support. It is not the same as the master/slave TWI on mega's, and the 841 does not have a USI, so the USI I2C libraries that exist for the tinyx4/x5 won't work either. I can't make SoftI2CMaster work.. 
 * Pin change interrupts are untested (including INT0).
-* Something is wrong with the upload process using ArduinoAsISP - it's SLOOOOOOW using Arduino-as-ISP. There seems to be a very long period of time at the start of upload where it engages in some sort of repetitive action, before eventually going ahead and uploading the compiled sketch. 
-* Optiboot coming real soon now. 
+* USBAsp can't program it. 
+
+Hardware
+============
+
+For use with Optiboot, the following components and connections are required:
+* Arduino pin 9/PA1/TXD0 to RXI of serial adapter
+* Arduino pin 8/PA2/RXD0 to TXO of serial adapter
+* Diode between Reset and Vcc (band towards Vcc)
+* 0.1uf capacitor between Reset and DTR of serial adapter
+* 10k resistor between reset and Vcc
+* (optional) LED and series resistor from Arduino pin 2/PB2/physical pin 5 to ground (This is the pin optiboot flashes)
+
+An example amenable to home etching can be found at http://drazzy.com/e/boards/boards.php
+
+I'm planning to make a professionally fabbed board after verifying the current design, and will make that design public on OSHpark et. al. 
 
 Installation
 ============

@@ -8,6 +8,10 @@ It supports 6 PWM outputs (3 timers), has two hardware UARTs, and real
 hardware SPI (as opposed to the USI used in the '84 and '85), as well as
 having an ADC channel on every pin.  
 
+This includes Optiboot for the ATTiny841. 
+
+If you installed this core prior to 3/14/2015, you must replace the previous entry in avrdude.conf with the new one. The efuse was not being read correctly. 
+
 For more information about Arduino, see the website at: http://www.arduino.cc/
 
 

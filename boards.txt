@@ -53,7 +53,7 @@ attiny841at16opti.name=ATtiny841 @ 16 MHz  (external crystal; Optiboot, 4.3v BoD
 
 attiny841at16opti.upload.protocol=arduino
 attiny841at16opti.upload.speed=115200
-attiny841at16opti.upload.maximum_size=7452
+attiny841at16opti.upload.maximum_size=7552
 attiny841at16opti.upload.tool=arduino:avrdude
 
 # Frequency 16.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
@@ -78,7 +78,7 @@ attiny841at8opti.name=ATtiny841 @ 8 MHz  (internal oscillator; Optiboot)
 
 attiny841at8opti.upload.protocol=arduino
 attiny841at8opti.upload.speed=115200
-attiny841at8opti.upload.maximum_size=7452
+attiny841at8opti.upload.maximum_size=7552
 attiny841at8opti.upload.tool=arduino:avrdude
 
 # Frequency 8.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
