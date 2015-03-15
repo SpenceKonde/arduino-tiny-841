@@ -47,6 +47,10 @@
 #define USE_PUE_REGISTER 1
 #define PORT_A_ID 1
 #define PORT_B_ID 2
+#define SS      3
+#define MISO    5
+#define MOSI    4
+#define SCK     6
 #endif
 #if defined( __AVR_ATtinyX5__ )
 #define PORT_B_ID 1
