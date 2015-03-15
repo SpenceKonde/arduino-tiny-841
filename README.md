@@ -21,7 +21,8 @@ Status
 * SPI is untested - but should work. Registers are identical to the mega328. 
 * I2C/TWI hardware slave needs library support. It is not the same as the master/slave TWI on mega's, and the 841 does not have a USI, so the USI I2C libraries that exist for the tinyx4/x5 won't work either. I can't make SoftI2CMaster work.. 
 * Pin change interrupts are untested (including INT0).
-* USBAsp can't program it. 
+* USBAsp can't program it :-(
+
 
 Hardware
 ============
@@ -92,6 +93,9 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
 
 * open the arduino-tiny-841 folder, and create a new folder named "avr". 
   Move the cores and bootloaders folders, as well as boards.txt, platform.txt, and programmers.txt into "avr"
+
+* In this avr folder, create a "libraries" folder. Copy the EEPROM and SPI libraries into this folder from  
+      (Arduino install location)/hardware/arduino/avr/libraries/
 
 *IF YOU ARE USING ARDUINO 1.0.x, you must update the compiler toolchain* 
   
