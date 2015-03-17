@@ -92,10 +92,7 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
 *IF YOU ARE USING ARDUINO 1.6:*
 
 * open the arduino-tiny-841 folder, and create a new folder named "avr". 
-  Move the cores and bootloaders folders, as well as boards.txt, platform.txt, and programmers.txt into "avr"
-
-* In this avr folder, create a "libraries" folder. Copy the EEPROM and SPI libraries into this folder from  
-      (Arduino install location)/hardware/arduino/avr/libraries/
+  Move the cores, libraries, and bootloaders folders, as well as boards.txt, platform.txt, and programmers.txt into "avr"
 
 *IF YOU ARE USING ARDUINO 1.0.x, you must update the compiler toolchain* 
   

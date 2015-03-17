@@ -1,4 +1,7 @@
-3/15/2016:
+3/16/2015:
+* Add copy of 1.6.0 libraries for 1.6.0 users. 
+
+3/15/2015:
 * Update boards.txt - there are now two entries for the optiboot boards as a hopefully temporary solution to changes in how bootloader .hex file location is specified. For non-optiboot, it doesn't matter, since 1.0.6 would just fail to write the flash which we're not writing anyway.
 * Update pins_arduino.h to define SPI pins.
 * Remove bogus programmer entries from boards.txt
