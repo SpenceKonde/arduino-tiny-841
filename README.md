@@ -10,7 +10,8 @@ If you installed this core prior to 3/14/2015, you must replace the previous ent
 Status
 ===========
 
-* Optiboot bootloader included
+* Optiboot bootloader included, and works
+* Includes board definitions + optiboot for 8mhz and 16mhz. 
 * Serial and Serial 1 work. 
 * INPUT_PULLUP works
 * millis and micros work
@@ -18,10 +19,10 @@ Status
 * PWM works on all 6 channels. 
 * EEPROM works.
 * tone is untested. 
-* SPI is untested - but should work. Registers are identical to the mega328. 
-* I2C/TWI hardware slave needs library support. It is not the same as the master/slave TWI on mega's, and the 841 does not have a USI, so the USI I2C libraries that exist for the tinyx4/x5 won't work either. I can't make SoftI2CMaster work.. 
+* SPI works. 
+* I2C/TWI hardware slave needs library support. It is not the same as the master/slave TWI on mega's, and the 841 does not have a USI, so the USI I2C libraries that exist for the tinyx4/x5 won't work either. I can't make SoftI2CMaster work. 
 * Pin change interrupts are untested (including INT0).
-* USBAsp can't program it :-(
+* USBAsp can't program it.
 
 
 Hardware
