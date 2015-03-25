@@ -347,6 +347,7 @@ __attribute__((always_inline)) static inline uint16_t ADC_GetDataRegister( void 
 /*=============================================================================
   Veneer for the ATtiny1634 ADC
 =============================================================================*/
+#if defined( __AVR_ATtiny1634__ )
 
 typedef enum
 {
