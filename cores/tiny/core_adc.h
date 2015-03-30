@@ -35,7 +35,7 @@
   Some common things
 =============================================================================*/
 
-#if defined( __AVR_ATtinyX4__ ) || defined( __AVR_ATtinyX5__ ) ||defined(__AVR_ATtiny1634) || defined( __AVR_ATtinyX41__ )
+#if defined( __AVR_ATtinyX4__ ) || defined( __AVR_ATtinyX5__ ) ||defined(__AVR_ATtiny1634__) || defined( __AVR_ATtinyX41__ )
 
 /*
   From the '841, '84, and '85 datasheets... By default, the successive approximation

@@ -75,6 +75,26 @@ const static uint8_t A7 = CORE_ANALOG_FIRST + 7;
 #endif
 
 #if CORE_ANALOG_COUNT >= 9
+const static uint8_t A8 = CORE_ANALOG_FIRST + 8;
+#endif
+
+#if CORE_ANALOG_COUNT >= 10
+const static uint8_t A9 = CORE_ANALOG_FIRST + 9;
+#endif
+
+#if CORE_ANALOG_COUNT >= 11
+const static uint8_t A10 = CORE_ANALOG_FIRST + 10;
+#endif
+
+#if CORE_ANALOG_COUNT >= 12
+const static uint8_t A11 = CORE_ANALOG_FIRST + 11;
+#endif
+
+#if CORE_ANALOG_COUNT >= 13
+const static uint8_t A12 = CORE_ANALOG_FIRST + 12;
+#endif
+
+#if CORE_ANALOG_COUNT >= 14
 #error Update the A* definitions for the selected processor.
 #endif
 

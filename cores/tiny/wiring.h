@@ -93,7 +93,7 @@ analogReference constants for ATmega168.  These are NOT correct for the ATtiny84
 
 #define DEFAULT (0)
 
-#elif defined( __AVR_ATtinyX4__ )
+#elif defined( __AVR_ATtinyX4__ )|| defined( __AVR_ATtiny1634__ )
 
 // VCC used as analog reference, disconnected from PA0 (AREF)
 #define DEFAULT (0)

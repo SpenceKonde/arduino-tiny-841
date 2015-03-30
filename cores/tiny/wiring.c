@@ -217,6 +217,7 @@ static void initToneTimerInternal(void)
   ToneTimer_ClockSelect( ToneTimer_Prescale_Index );
 }
 
+#if defined (__AVR_ATtinyX41__)
 static void initTimer841(void) 
 {
   Timer2_ClockSelect(0);
@@ -227,7 +228,7 @@ static void initTimer841(void)
   Timer2_ClockSelect(3);
 
 }
-
+#endif
 
 void initToneTimer(void)
 {

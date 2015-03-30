@@ -71,7 +71,7 @@ extern const uint8_t PROGMEM port_to_mode_PGM[];
 extern const uint8_t PROGMEM port_to_input_PGM[];
 extern const uint8_t PROGMEM port_to_output_PGM[];
 extern const uint8_t PROGMEM port_to_pcmask_PGM[];
-#if defined( USE_PUE_REGISTER )
+#if defined(__AVR_ATtinyX41__) || defined(__AVR_ATtiny1634__)
 extern const uint8_t PROGMEM port_to_pullup_PGM[];
 #endif
 extern const uint8_t PROGMEM digital_pin_to_port_PGM[];
@@ -159,7 +159,7 @@ extern const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[];
 #define digitalPinToPCMSKbit(p) digitalPinToPCX( p, p,       3-p,     p-2,     p-9,     0    )
 #endif
 
-#if defined(__AVR_ATtiny1634__) || defined(__AVR_ATtiny1634__)
+#if defined(__AVR_ATtinyX41__) || defined(__AVR_ATtiny1634__)
 #define portPullupRegister(P) ( (volatile uint8_t *)( pgm_read_byte( port_to_pullup_PGM + (P))) )
 #endif
 
