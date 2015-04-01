@@ -5,8 +5,6 @@ A fork of shimniok's ( github.com/shimniok ) fork of arduino-tiny, which made an
 
 This fork aims to finish what he started and add working support for the ATtiny841 on Arduino. 
 
-If you installed this core prior to 3/14/2015, you must replace the previous entry in avrdude.conf with the new one. The efuse was not being read correctly. 
-
 Status
 ===========
 
@@ -93,7 +91,9 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
 *IF YOU ARE USING ARDUINO 1.6:*
 
 * open the arduino-tiny-841 folder, and create a new folder named "avr". 
-  Move the cores, libraries, and bootloaders folders, as well as boards.txt, platform.txt, and programmers.txt into "avr"
+  Move the cores, libraries, and bootloaders folders, as well as boards.txt, platform.txt, platform_162.txt, and programmers.txt into "avr"
+
+* If you are using Arduino 1.6.2, delete platform.txt and rename platform_162.txt to platform.txt. 
 
 *IF YOU ARE USING ARDUINO 1.0.x, you must update the compiler toolchain* 
   
