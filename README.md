@@ -51,8 +51,6 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
 
 * Ensure the "hardware" folder exists under the Arduino Sketch folder. If it is not there, create it. 
 
-
-
 * Download Arduino-Tiny-841 from github as a ZIP file, and extract it into the 
   "hardware" folder, or simply clone the github repo into there.  For example,
   if the Arduino Sketch folder is...
@@ -62,20 +60,22 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
   After extracting, the following files / folders should exist...
 
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\LICENSE
-      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avrdude_conf.txt
-      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\Boards.txt
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avrdude_conf16x.txt
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avrdude_conf106.txt
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\Boards106.txt
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\Boards.txt
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\ChangeLog
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\README
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\README.md
-      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\platform.txt
-      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\programmers.txt
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\platform.txt
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\programmers.txt
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\bootloaders\
-      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\cores\
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\cores\
 
   The following folder should contain the source files for the Arduino-Tiny
   core...
 
-      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\cores\
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\cores\
 
 * Locate avrdude.conf - typically in 
   C:\Program Files (x86)\Arduino\tools\avr\etc 
@@ -85,15 +85,11 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
   in the "Allow" column for "Full Control". If not, click Edit, select Users, 
   and click the checkbox to Allow Full Control. Apply.
 
-* Open avrdude.conf using any text editor. Copy/paste the contents of 
-  avrdude_conf.txt onto the end of avrdude.conf and save. 
+* Open avrdude.conf using any text editor. At the end of the file, copy+paste the contents of avrdude_conf_16x or 106 (depending on which version of the IDE you are using)
 
-*IF YOU ARE USING ARDUINO 1.6:*
+* If YOU ARE USING ARDUINO VERSION 1.6.2, delete platform.txt and rename platform_162.txt to platform.txt. 
 
-* open the arduino-tiny-841 folder, and create a new folder named "avr". 
-  Move the cores, libraries, and bootloaders folders, as well as boards.txt, platform.txt, platform_162.txt, and programmers.txt into "avr"
-
-* If you are using Arduino 1.6.2, delete platform.txt and rename platform_162.txt to platform.txt. 
+* If you are using Arduino 1.0.x, move the contents of C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\ to C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\ 
 
 *IF YOU ARE USING ARDUINO 1.0.x, you must update the compiler toolchain* 
   
