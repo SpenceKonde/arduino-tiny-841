@@ -5,16 +5,18 @@ A fork of shimniok's ( github.com/shimniok ) fork of arduino-tiny, which made an
 
 This fork aims to finish what he started and add working support for the ATtiny841 on Arduino. 
 
+Additionally, it brings in support for the ATTiny1634, brought in from rambo's 1.0.6 ATTiny1634 core. 
+
 Status
 ===========
 
 * Optiboot bootloader included, and works
-* Includes board definitions + optiboot for 8mhz and 16mhz. 
-* Serial and Serial 1 work. 
+* Includes board definitions + optiboot for 8mhz and 16mhz (for 841 only - 1634 is out of spec @ 16mhz)
+* Serial and Serial1 work. 
 * INPUT_PULLUP works
 * millis and micros work
 * analogRead() works
-* PWM works on all 6 channels. 
+* PWM works on all 6 channels (4 for 1634, naturally). 
 * EEPROM works.
 * tone is untested. 
 * SPI works. 
@@ -27,8 +29,8 @@ Hardware
 ============
 
 For use with Optiboot, the following components and connections are required:
-* Arduino pin 9/PA1/TXD0 to RXI of serial adapter
-* Arduino pin 8/PA2/RXD0 to TXO of serial adapter
+* Arduino pin 9/PA1/TXD0 to RXI of serial adapter (0/PB0 on 1634)
+* Arduino pin 8/PA2/RXD0 to TXO of serial adapter (1/PA7 on 1634)
 * Diode between Reset and Vcc (band towards Vcc)
 * 0.1uf capacitor between Reset and DTR of serial adapter
 * 10k resistor between reset and Vcc
