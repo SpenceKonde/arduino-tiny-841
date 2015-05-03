@@ -1,3 +1,12 @@
+5/1/2015:
+* Fix bootloader tiny1634 maximum size spec. 
+* Add 12mhz bootloader for tiny1634
+* Add noLED bootloaders for 841
+
+4/22/2015:
+* Go full 1.6.x, now you can just sync github to hardware in sketchbook and modify avrdude.conf. 1.0.6 setup is documented.
+* Add Tiny1634 support (based on rambo's core)
+
 4/1/2015:
 * Add platform_162.txt for people using 1.6.2
 

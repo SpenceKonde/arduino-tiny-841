@@ -198,33 +198,19 @@ attiny1634at1.build.mcu=attiny1634
 attiny1634at1.build.f_cpu=1000000L
 attiny1634at1.build.core=tiny
 
+
 ###############################################################################
 
 
 
 attiny1634at8opti.name=ATTiny1634 @ 8 MHz  (optiboot)
 
-# The following do NOT work...
-# attiny1634at8.upload.using=avrispv2
-# attiny1634at8.upload.using=Pololu USB AVR Programmer
-
-# The following DO work (pick one)...
-#attiny1634at8opti.upload.using=arduino:arduinoisp
-# attiny1634at8.upload.protocol=avrispv2
-# attiny1634at8.upload.using=pololu
-
-
 attiny1634at8opti.upload.protocol=arduino
-#uno.upload.maximum_size=32256
 attiny1634at8opti.upload.speed=115200
 
-attiny1634at8opti.upload.maximum_size=16384
+attiny1634at8opti.upload.maximum_size=15744
 attiny1634at8opti.upload.maximum_ram_size=1024
 
-# Default clock (slowly rising power; long delay to clock; 8 MHz internal)
-# Int. RC Osc. 8 MHz; Start-up time PWRDWN/RESET: 6 CK/14 CK + 64 ms; [CKSEL=0010 SUT=0]; default value
-# Brown-out detection disabled; [BODLEVEL=111]
-# Preserve EEPROM memory through the Chip Erase cycle; [EESAVE=0]
 
 attiny1634at8opti.bootloader.low_fuses=0xE2
 attiny1634at8opti.bootloader.high_fuses=0xD2
@@ -235,5 +221,34 @@ attiny1634at8opti.bootloader.file=optiboot_attiny1634at8.hex
 attiny1634at8opti.build.mcu=attiny1634
 attiny1634at8opti.build.f_cpu=8000000L
 attiny1634at8opti.build.core=tiny
+ 
+###########################################################################
+
+###############################################################################
+
+
+
+attiny1634at12opti.name=ATTiny1634 @ 12 MHz  (optiboot)
+
+attiny1634at12opti.upload.protocol=arduino
+attiny1634at12opti.upload.speed=115200
+
+attiny1634at12opti.upload.maximum_size=15744
+attiny1634at12opti.upload.maximum_ram_size=1024
+
+# Default clock (slowly rising power; long delay to clock; 8 MHz internal)
+# Int. RC Osc. 8 MHz; Start-up time PWRDWN/RESET: 6 CK/14 CK + 64 ms; [CKSEL=0010 SUT=0]; default value
+# Brown-out detection disabled; [BODLEVEL=111]
+# Preserve EEPROM memory through the Chip Erase cycle; [EESAVE=0]
+
+attiny1634at12opti.bootloader.low_fuses=0xE2
+attiny1634at12opti.bootloader.high_fuses=0xD2
+attiny1634at12opti.bootloader.extended_fuses=0xFE
+attiny1634at8opti.bootloader.path=optiboot
+attiny1634at8opti.bootloader.file=optiboot_attiny1634at12.hex
+
+attiny1634at12opti.build.mcu=attiny1634
+attiny1634at12opti.build.f_cpu=12000000L
+attiny1634at12opti.build.core=tiny
  
 ###########################################################################
