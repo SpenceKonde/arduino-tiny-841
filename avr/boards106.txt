@@ -70,6 +70,30 @@ attiny841at16opti.bootloader.file=optiboot_attiny841at16.hex
 attiny841at16opti.build.mcu=attiny841
 attiny841at16opti.build.f_cpu=16000000L
 attiny841at16opti.build.core=tiny
+###########################################################################
+attiny841at20opti.name=ATtiny841 @ 20 MHz  (overclocked w/external crystal; Optiboot, 4.3v BoD 1.0.6)
+
+attiny841at20opti.upload.protocol=arduino
+attiny841at20opti.upload.speed=115200
+attiny841at20opti.upload.maximum_size=7552
+attiny841at20opti.upload.tool=arduino:avrdude
+
+# Frequency 16.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
+# Brown-out detection level at VCC=4.3 V
+# Preserve EEPROM memory through the Chip Erase cycle
+# Serial program downloading (SPI) enabled
+
+attiny841at20opti.bootloader.low_fuses=0xEE
+attiny841at20opti.bootloader.high_fuses=0xD4
+attiny841at20opti.bootloader.extended_fuses=0xFE
+attiny841at20opti.bootloader.unlock_bits=0xFF
+attiny841at20opti.bootloader.lock_bits=0xFF
+attiny841at20opti.bootloader.path=optiboot
+attiny841at20opti.bootloader.file=optiboot_attiny841at20.hex
+
+attiny841at20opti.build.mcu=attiny841
+attiny841at20opti.build.f_cpu=20000000L
+attiny841at20opti.build.core=tiny
 
 
 ###########################################################################

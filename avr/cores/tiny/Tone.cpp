@@ -68,6 +68,11 @@ const unsigned int Tone_Lowest_Frequency = (F_CPU + (2L * TONETIMER_MAXIMUM_DIVI
   #define TONE_FREQUENCY_CUTOFF_3  (15)
   #define TONE_FREQUENCY_CUTOFF_2  (122)
   #define TONE_FREQUENCY_CUTOFF_1  (65535)
+#elif F_CPU > 16000000
+  #define TONE_FREQUENCY_CUTOFF_4  (1)
+  #define TONE_FREQUENCY_CUTOFF_3  (18)
+  #define TONE_FREQUENCY_CUTOFF_2  (152)
+  #define TONE_FREQUENCY_CUTOFF_1  (65535)
 #endif
 #endif
 
@@ -89,6 +94,12 @@ const unsigned int Tone_Lowest_Frequency = (F_CPU + (2L * TONETIMER_MAXIMUM_DIVI
   #define TONE_FREQUENCY_CUTOFF_4  (487)
   #define TONE_FREQUENCY_CUTOFF_3  (3898)
   #define TONE_FREQUENCY_CUTOFF_2  (31189)
+  #define TONE_FREQUENCY_CUTOFF_1  (65535)
+#elif F_CPU > 16000000 //assume it's around 20 if it's over 16, since avr's don't usually work above low 20's anyway. 
+  #define TONE_FREQUENCY_CUTOFF_5  (151)
+  #define TONE_FREQUENCY_CUTOFF_4  (584)
+  #define TONE_FREQUENCY_CUTOFF_3  (4677)
+  #define TONE_FREQUENCY_CUTOFF_2  (37426)
   #define TONE_FREQUENCY_CUTOFF_1  (65535)
 #endif
 #endif

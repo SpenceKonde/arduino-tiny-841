@@ -42,7 +42,10 @@
   circuitry requires an input clock frequency between 50 kHz and 200 kHz to
   get maximum resolution.
 */
-#if F_CPU == 16000000
+#if F_CPU == 20000000
+  // 16 MHz / 128 = 125 KHz
+  #define ADC_ARDUINO_PRESCALER   ADC_Prescaler_Value_128
+#elif F_CPU == 16000000
   // 16 MHz / 128 = 125 KHz
   #define ADC_ARDUINO_PRESCALER   ADC_Prescaler_Value_128
 #elif F_CPU == 12000000
