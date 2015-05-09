@@ -94,36 +94,20 @@
 
 #endif
 
-
-/*=============================================================================
-  Build options for the ATtiny84 processor
-=============================================================================*/
-
-#if defined( __AVR_ATtiny24__ ) || defined( __AVR_ATtiny44__ ) || defined( __AVR_ATtiny84__ )
-#define __AVR_ATtinyX4__
-#endif
-
-#if defined( __AVR_ATtinyX4__ )
-
-/*
-  The old standby ... millis on Timer 0.
-*/
-#define TIMER_TO_USE_FOR_MILLIS                   0
-
-/*
-  Tone goes on whichever timer was not used for millis.
-*/
-#if TIMER_TO_USE_FOR_MILLIS == 1
-#define TIMER_TO_USE_FOR_TONE                     0
-#else
-#define TIMER_TO_USE_FOR_TONE                     1
-#endif
-
-#define HAVE_ADC                                  1
-
-#define DEFAULT_TO_TINY_DEBUG_SERIAL              1
-
-#endif
+// missing defines (?)
+#define PCINT0 0
+#define PCINT1 1
+#define PCINT2 2
+#define PCINT3 3
+#define PCINT4 4
+#define PCINT5 5
+#define PCINT6 6
+#define PCINT7 7
+#define PCINT8 0
+#define PCINT9 1
+#define PCINT10 2
+#define PCINT11 3
+#define PCINT12 4
 
 /*=============================================================================
   Build options for the ATtiny1634 processor
@@ -151,43 +135,6 @@
 
 #endif
 
-/*=============================================================================
-  Build options for the ATtiny85 processor
-=============================================================================*/
-
-#if defined( __AVR_ATtiny25__ ) || defined( __AVR_ATtiny45__ ) || defined( __AVR_ATtiny85__ )
-#define __AVR_ATtinyX5__
-#endif
-
-#if defined( __AVR_ATtinyX5__ )
-
-/*
-  For various reasons, Timer 1 is a better choice for the millis timer on the
-  '85 processor.
-*/
-#define TIMER_TO_USE_FOR_MILLIS                   1
-
-/*
-  If the following is true (non-zero) there will be two phase-correct PWM
-  pins and one fast PWM pin.  If false there will be one phase-correct PWM
-  pin and two fast PWM pins.
-*/
-#define FAVOR_PHASE_CORRECT_PWM                   1
-
-/*
-  Tone goes on whichever timer was not used for millis.
-*/
-#if TIMER_TO_USE_FOR_MILLIS == 1
-#define TIMER_TO_USE_FOR_TONE                     0
-#else
-#define TIMER_TO_USE_FOR_TONE                     1
-#endif
-
-#define HAVE_ADC                                  1
-
-#define DEFAULT_TO_TINY_DEBUG_SERIAL              1
-
-#endif
 
 
 /*=============================================================================
