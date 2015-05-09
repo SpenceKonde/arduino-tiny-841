@@ -12,10 +12,10 @@ part
                0xBC, 0x07, 0xB4, 0x07, 0xBA, 0x0D, 0xBB, 0xBC,
                0x99, 0xE1, 0xBB, 0xAC;
 ## no STK500 devcode in XML file, use the ATtiny45 one
-     ##stk500_devcode   = 0x14;
+     stk500_devcode   = 0x14;
 ##  avr910_devcode   = ?;
 ##  Try the AT90S2313 devcode:
-     ##avr910_devcode   = 0x20;
+     avr910_devcode   = 0x20;
      signature        = 0x1e 0x93 0x15;
      reset            = io;
      chip_erase_delay = 4500;
