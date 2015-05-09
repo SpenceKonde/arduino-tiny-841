@@ -1,4 +1,30 @@
 ###########################################################################
+attiny841at20.name=ATtiny841 @ 20 MHz  (overclocked w/external crystal; 4.3 V BOD)
+
+attiny841at20.upload.tool=arduino:avrdude
+attiny841at20.upload.maximum_size=8192
+
+# Frequency 16.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
+# Brown-out detection level at VCC=4.3 V
+# Preserve EEPROM memory through the Chip Erase cycle
+# Serial program downloading (SPI) enabled
+
+attiny841at20.bootloader.tool=arduino:avrdude
+attiny841at20.bootloader.low_fuses=0xEE
+attiny841at20.bootloader.high_fuses=0xD4
+attiny841at20.bootloader.extended_fuses=0xFF
+attiny841at20.bootloader.unlock_bits=0xFF
+attiny841at20.bootloader.lock_bits=0xFF
+attiny841at20.bootloader.file=empty/empty.hex
+
+attiny841at20.build.mcu=attiny841
+attiny841at20.build.f_cpu=16000000L
+attiny841at20.build.core=tiny
+
+
+###########################################################################
+
+###########################################################################
 attiny841at16.name=ATtiny841 @ 16 MHz  (external crystal; 4.3 V BOD)
 
 attiny841at16.upload.tool=arduino:avrdude
@@ -15,7 +41,7 @@ attiny841at16.bootloader.high_fuses=0xD4
 attiny841at16.bootloader.extended_fuses=0xFF
 attiny841at16.bootloader.unlock_bits=0xFF
 attiny841at16.bootloader.lock_bits=0xFF
-attiny841at16.bootloader.file=empty/empty841at16.hex
+attiny841at16.bootloader.file=empty/empty.hex
 
 attiny841at16.build.mcu=attiny841
 attiny841at16.build.f_cpu=16000000L
@@ -41,7 +67,7 @@ attiny841at8.bootloader.high_fuses=0xD7
 attiny841at8.bootloader.extended_fuses=0xFF
 attiny841at8.bootloader.unlock_bits=0xFF
 attiny841at8.bootloader.lock_bits=0xFF
-attiny841at8.bootloader.file=empty/empty841at8.hex
+attiny841at8.bootloader.file=empty/empty.hex
 
 attiny841at8.build.mcu=attiny841
 attiny841at8.build.f_cpu=8000000L
