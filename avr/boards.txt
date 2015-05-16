@@ -3,6 +3,7 @@ attiny841at20.name=ATtiny841 @ 20 MHz  (overclocked w/external crystal; 4.3 V BO
 
 attiny841at20.upload.tool=arduino:avrdude
 attiny841at20.upload.maximum_size=8192
+attiny841at20.upload.maximum_data_size=512
 
 # Frequency 16.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
 # Brown-out detection level at VCC=4.3 V
@@ -29,6 +30,7 @@ attiny841at16.name=ATtiny841 @ 16 MHz  (external crystal; 4.3 V BOD)
 
 attiny841at16.upload.tool=arduino:avrdude
 attiny841at16.upload.maximum_size=8192
+attiny841at16.upload.maximum_data_size=512
 
 # Frequency 16.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
 # Brown-out detection level at VCC=4.3 V
@@ -54,6 +56,7 @@ attiny841at8.name=ATtiny841 @ 8 MHz  (internal oscillator; BOD disabled)
 
 
 attiny841at8.upload.maximum_size=8192
+attiny841at8.upload.maximum_data_size=512
 attiny841at8.upload.tool=arduino:avrdude
 
 # Frequency 8.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
@@ -79,6 +82,7 @@ attiny841at16opti.name=ATtiny841 @ 16 MHz  (external crystal; Optiboot, 4.3v BoD
 attiny841at16opti.upload.protocol=arduino
 attiny841at16opti.upload.speed=115200
 attiny841at16opti.upload.maximum_size=7552
+attiny841at16opti.upload.maximum_data_size=512
 attiny841at16opti.upload.tool=arduino:avrdude
 
 # Frequency 16.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
@@ -105,6 +109,7 @@ attiny841at20opti.name=ATtiny841 @ 20 MHz  (overclocked w/external crystal; Opti
 attiny841at20opti.upload.protocol=arduino
 attiny841at20opti.upload.speed=115200
 attiny841at20opti.upload.maximum_size=7552
+attiny841at20opti.upload.maximum_data_size=512
 attiny841at20opti.upload.tool=arduino:avrdude
 
 # Frequency 16.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
@@ -132,6 +137,7 @@ attiny841at8opti.name=ATtiny841 @ 8 MHz  (internal oscillator; Optiboot)
 attiny841at8opti.upload.protocol=arduino
 attiny841at8opti.upload.speed=115200
 attiny841at8opti.upload.maximum_size=7552
+attiny841at8opti.upload.maximum_data_size=512
 attiny841at8opti.upload.tool=arduino:avrdude
 
 # Frequency 8.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms
@@ -171,7 +177,7 @@ attiny1634at12e.upload.using=arduino:arduinoisp
 # attiny1634at12e.upload.using=pololu
 
 attiny1634at12e.upload.maximum_size=16384
-attiny1634at12e.upload.maximum_ram_size=1024
+attiny1634at12e.upload.maximum_data_size=1024
 
 # Ext. Crystal Osc.; Frequency 8.0- MHz; Start-up time PWRDWN/RESET: 16K CK/14 CK + 65 ms; [CKSEL=1111 SUT=0]
 # Brown-out detection level at VCC=4.3 V; [BODLEVEL=100]
@@ -203,7 +209,7 @@ attiny1634at8.upload.using=arduino:arduinoisp
 # attiny1634at8.upload.using=pololu
 
 attiny1634at8.upload.maximum_size=16384
-attiny1634at8.upload.maximum_ram_size=1024
+attiny1634at8.upload.maximum_data_size=1024
 
 # Default clock (slowly rising power; long delay to clock; 8 MHz internal)
 # Int. RC Osc. 8 MHz; Start-up time PWRDWN/RESET: 6 CK/14 CK + 64 ms; [CKSEL=0010 SUT=0]; default value
@@ -234,7 +240,7 @@ attiny1634at1.upload.using=arduino:arduinoisp
 # attiny1634at1.upload.using=pololu
 
 attiny1634at1.upload.maximum_size=16384
-attiny1634at1.upload.maximum_ram_size=1024
+attiny1634at1.upload.maximum_data_size=1024
 
 # Default clock (slowly rising power; long delay to clock; 8 MHz internal; divide clock by 8)
 # Int. RC Osc. 8 MHz; Start-up time PWRDWN/RESET: 6 CK/14 CK + 64 ms; [CKSEL=0010 SUT=0]; default value
@@ -264,7 +270,7 @@ attiny1634at8opti.upload.protocol=arduino
 attiny1634at8opti.upload.speed=115200
 
 attiny1634at8opti.upload.maximum_size=15744
-attiny1634at8opti.upload.maximum_ram_size=1024
+attiny1634at8opti.upload.maximum_data_size=1024
 
 
 attiny1634at8opti.bootloader.low_fuses=0xE2
@@ -288,14 +294,14 @@ attiny1634at12opti.upload.protocol=arduino
 attiny1634at12opti.upload.speed=115200
 
 attiny1634at12opti.upload.maximum_size=15744
-attiny1634at12opti.upload.maximum_ram_size=1024
+attiny1634at12opti.upload.maximum_data_size=1024
 
 # Default clock (slowly rising power; long delay to clock; 8 MHz internal)
 # Int. RC Osc. 8 MHz; Start-up time PWRDWN/RESET: 6 CK/14 CK + 64 ms; [CKSEL=0010 SUT=0]; default value
 # Brown-out detection disabled; [BODLEVEL=111]
 # Preserve EEPROM memory through the Chip Erase cycle; [EESAVE=0]
 
-attiny1634at12opti.bootloader.low_fuses=0xE2
+attiny1634at12opti.bootloader.low_fuses=0xEF
 attiny1634at12opti.bootloader.high_fuses=0xD2
 attiny1634at12opti.bootloader.extended_fuses=0xFE
 attiny1634at12opti.bootloader.file=optiboot/optiboot_attiny1634at12.hex
