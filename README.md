@@ -11,7 +11,7 @@ Status
 ===========
 
 * Optiboot bootloader included, and works
-* Includes board definitions + optiboot for 8mhz and 16mhz (for 841 only - 1634 is out of spec @ 16mhz)
+* Includes board definitions + optiboot for 841 at 8mhz,  16mhz, and 20mhz (overclocked), and 1634 at 8mhz and 12mhz.
 * Serial and Serial1 work. 
 * INPUT_PULLUP works
 * millis and micros work
@@ -20,9 +20,10 @@ Status
 * EEPROM works.
 * tone is untested. 
 * SPI works. 
-* I2C/TWI hardware slave needs library support. It is not the same as the master/slave TWI on mega's, and the 841 does not have a USI, so the USI I2C libraries that exist for the tinyx4/x5 won't work either. I can't make SoftI2CMaster work. 
+* I2C/TWI hardware slave supported by WireS library: https://github.com/orangkucing/WireS
+* I2C/TWI software master not available / not tested. 
 * Pin change interrupts are untested (including INT0).
-* USBAsp can't program it.
+* USBAsp can't program it - neither can many other ISPs. Investigation is ongoing.
 * Optiboot without the LED blink (noLED) for 841 included; this saves 64 bytes of flash (not used by default - modify boards.txt if needed)
 
 
