@@ -21,7 +21,8 @@ Status
 * tone is untested. 
 * SPI works. 
 * I2C/TWI hardware slave supported by WireS library: https://github.com/orangkucing/WireS
-* I2C/TWI software master not available / not tested. 
+* I2C/TWI software master not available / not tested for tiny841
+* On the Tiny1634, there is a USI, which should work with the existing USI libraries to function as I2C master. 
 * Pin change interrupts are untested (including INT0).
 * USBAsp can't program it - neither can many other ISPs. Investigation is ongoing.
 * Optiboot without the LED blink (noLED) for 841 included; this saves 64 bytes of flash (not used by default - modify boards.txt if needed)
