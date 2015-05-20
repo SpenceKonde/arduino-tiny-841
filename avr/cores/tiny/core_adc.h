@@ -371,10 +371,10 @@ typedef enum
   ADC_Input_ADC5            = B0101,
   ADC_Input_ADC6            = B0110,
   ADC_Input_ADC7            = B0111,
-  ADC_Input_ADC8            = B0111,
-  ADC_Input_ADC9            = B0111,
-  ADC_Input_ADC10           = B0111,
-  ADC_Input_ADC11           = B0111,
+  ADC_Input_ADC8            = B1000,
+  ADC_Input_ADC9            = B1001,
+  ADC_Input_ADC10           = B1010,
+  ADC_Input_ADC11           = B1011,
 
   ADC_Input_GND             = B1100,  // 0V (AGND)
   ADC_Input_1p1             = B1101,  // 1.1V (I Ref)
