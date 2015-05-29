@@ -185,6 +185,7 @@ attiny1634at12e.upload.maximum_data_size=1024
 # Serial program downloading (SPI) enabled; [SPIEN=0]
 # BOD enabled: BODACT 10 BODPD 10
 
+attiny1634at12e.bootloader.tool=arduino:avrdude
 attiny1634at12e.bootloader.low_fuses=0xEF
 attiny1634at12e.bootloader.high_fuses=0xD4
 attiny1634at12e.bootloader.extended_fuses=0xF4
@@ -216,6 +217,7 @@ attiny1634at8.upload.maximum_data_size=1024
 # Brown-out detection disabled; [BODLEVEL=111]
 # Preserve EEPROM memory through the Chip Erase cycle; [EESAVE=0]
 
+attiny1634at8.bootloader.tool=arduino:avrdude
 attiny1634at8.bootloader.low_fuses=0xE2
 attiny1634at8.bootloader.high_fuses=0xD2
 attiny1634at8.bootloader.extended_fuses=0xFE
@@ -248,6 +250,7 @@ attiny1634at1.upload.maximum_data_size=1024
 # Brown-out detection disabled; [BODLEVEL=111]
 # Preserve EEPROM memory through the Chip Erase cycle; [EESAVE=0]
 
+attiny1634at1.bootloader.tool=arduino:avrdude
 attiny1634at1.bootloader.low_fuses=0x62
 attiny1634at1.bootloader.high_fuses=0xD7
 attiny1634at1.bootloader.extended_fuses=0xFE
@@ -273,6 +276,7 @@ attiny1634at8opti.upload.maximum_size=15744
 attiny1634at8opti.upload.maximum_data_size=1024
 
 
+attiny1634at8opti.bootloader.tool=arduino:avrdude
 attiny1634at8opti.bootloader.low_fuses=0xE2
 attiny1634at8opti.bootloader.high_fuses=0xD2
 attiny1634at8opti.bootloader.extended_fuses=0xFE
@@ -301,6 +305,7 @@ attiny1634at12opti.upload.maximum_data_size=1024
 # Brown-out detection disabled; [BODLEVEL=111]
 # Preserve EEPROM memory through the Chip Erase cycle; [EESAVE=0]
 
+attiny1634at12opti.bootloader.tool=arduino:avrdude
 attiny1634at12opti.bootloader.low_fuses=0xEF
 attiny1634at12opti.bootloader.high_fuses=0xD2
 attiny1634at12opti.bootloader.extended_fuses=0xFE
