@@ -165,7 +165,7 @@ attiny841at8opti.build.core=tiny
 
 ###########################################################################
 
-attiny1634at12.name=ATTiny1634 @ 12 MHz 
+attiny1634at12.name=ATTiny1634 @ 12 MHz  (Ext xtal)
 attiny1634at12.upload.protocol=arduino
 attiny1634at12.upload.speed=115200
 attiny1634at12.upload.maximum_size=16384
@@ -182,7 +182,8 @@ attiny1634at12.build.mcu=attiny1634
 attiny1634at12.build.f_cpu=12000000L
 attiny1634at12.build.core=tiny
 
- 
+
+
 ###########################################################################
 
 attiny1634at8.name=ATTiny1634 @ 8 MHz 
@@ -251,7 +252,7 @@ attiny1634at8opti.build.core=tiny
 
 
 
-attiny1634at12opti.name=ATTiny1634 @ 12 MHz  (optiboot)
+attiny1634at12opti.name=ATTiny1634 @ 12 MHz  (optiboot, ext xtal)
 attiny1634at12opti.upload.protocol=arduino
 attiny1634at12opti.upload.speed=115200
 attiny1634at12opti.upload.maximum_size=15744
@@ -267,6 +268,31 @@ attiny1634at12opti.bootloader.file=optiboot/optiboot_attiny1634at12.hex
 attiny1634at12opti.build.mcu=attiny1634
 attiny1634at12opti.build.f_cpu=12000000L
 attiny1634at12opti.build.core=tiny
+
+ 
+###########################################################################
+
+
+###############################################################################
+
+
+
+attiny1634at16opti.name=ATTiny1634 @ 16 MHz  (optiboot, ext xtal, overclocked)
+attiny1634at16opti.upload.protocol=arduino
+attiny1634at16opti.upload.speed=115200
+attiny1634at16opti.upload.maximum_size=15744
+attiny1634at16opti.upload.maximum_data_size=1024
+attiny1634at16opti.upload.tool=arduino:avrdude
+attiny1634at16opti.bootloader.tool=arduino:avrdude
+attiny1634at16opti.bootloader.low_fuses=0xEF
+attiny1634at16opti.bootloader.high_fuses=0xDA
+attiny1634at16opti.bootloader.extended_fuses=0x1E
+attiny1634at16opti.bootloader.unlock_bits=0x03
+attiny1634at16opti.bootloader.lock_bits=0x03
+attiny1634at16opti.bootloader.file=optiboot/optiboot_attiny1634at16.hex
+attiny1634at16opti.build.mcu=attiny1634
+attiny1634at16opti.build.f_cpu=16000000L
+attiny1634at16opti.build.core=tiny
 
  
 ###########################################################################
