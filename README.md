@@ -43,7 +43,9 @@ For use with Optiboot, the following components and connections are required:
 An example amenable to home etching can be found at http://drazzy.com/e/boards/boards.php
 
 Suitable breakout boards can be purchased from my Tindie shop:
+
 841: https://www.tindie.com/products/DrAzzy/attiny84184-breakout/ (out of stock - that link will go live when stock available)
+
 1634: https://www.tindie.com/products/DrAzzy/attiny1634-breakout-wserial-header-bare-board/
 
 Installation
