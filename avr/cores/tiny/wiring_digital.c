@@ -32,7 +32,7 @@
 #include "core_timers.h"
 #include "PwmTimer.h"
 
-#if defined(__AVR_ATtiny1634__) || defined(__AVR_ATtiny1634__)
+#if defined(__AVR_ATtinyX41__ ) || defined(__AVR_ATtiny1634__)
 void pinMode(uint8_t pin, uint8_t mode)
 {
   uint8_t bit = digitalPinToBitMask(pin);
