@@ -23,7 +23,7 @@ Status
 * I2C/TWI hardware slave supported by WireS library: https://github.com/orangkucing/WireS
 * I2C/TWI software master appears to work: https://github.com/todbot/SoftI2CMaster
 * On the Tiny1634, there is a USI, which should work with the existing USI libraries to function as I2C master. 
-* Pin change interrupts are untested (including INT0).
+* Pin change interrupts work.
 * Some people have problems programming it with USBAsp and TinyISP. I used to, but today I tried, having changed nothing, and my USBAsp works just fine. Funky stuff. ArduinoAsISP works reliably (albeit slowly)
 * Optiboot without the LED blink (noLED) for 841 included; this saves 64 bytes of flash (not used by default - modify boards.txt if needed)
 * Board Manager support planned once the dust around that feature settles. 
@@ -44,9 +44,9 @@ An example amenable to home etching can be found at http://drazzy.com/e/boards/b
 
 Suitable breakout boards can be purchased from my Tindie shop:
 
-841: https://www.tindie.com/products/DrAzzy/attiny84184-breakout/ (out of stock - that link will go live when stock available)
+841: https://www.tindie.com/products/DrAzzy/attiny84184-breakout/ 
 
-1634: https://www.tindie.com/products/DrAzzy/attiny1634-breakout-wserial-header-bare-board/
+1634: https://www.tindie.com/products/DrAzzy/attiny1634-breakout-wserial-header-bare-board/ (restock expected between 6/17 and 6/20/2015)
 
 Installation
 ============
