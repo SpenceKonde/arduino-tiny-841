@@ -94,6 +94,51 @@ const static uint8_t A12 = CORE_ANALOG_FIRST + 12;
 #endif
 
 #if CORE_ANALOG_COUNT >= 14
+const static uint8_t A13 = CORE_ANALOG_FIRST + 13;
+#endif
+#if CORE_ANALOG_COUNT >= 15
+const static uint8_t A14 = CORE_ANALOG_FIRST + 14;
+#endif
+#if CORE_ANALOG_COUNT >= 16
+const static uint8_t A15 = CORE_ANALOG_FIRST + 15;
+#endif
+#if CORE_ANALOG_COUNT >= 17
+const static uint8_t A16 = CORE_ANALOG_FIRST + 16;
+#endif
+#if CORE_ANALOG_COUNT >= 18
+const static uint8_t A17 = CORE_ANALOG_FIRST + 17;
+#endif
+#if CORE_ANALOG_COUNT >= 19
+const static uint8_t A18 = CORE_ANALOG_FIRST + 18;
+#endif
+#if CORE_ANALOG_COUNT >= 20
+const static uint8_t A19 = CORE_ANALOG_FIRST + 19;
+#endif
+#if CORE_ANALOG_COUNT >= 21
+const static uint8_t A20 = CORE_ANALOG_FIRST + 20;
+#endif
+#if CORE_ANALOG_COUNT >= 22
+const static uint8_t A21 = CORE_ANALOG_FIRST + 21;
+#endif
+#if CORE_ANALOG_COUNT >= 23
+const static uint8_t A22 = CORE_ANALOG_FIRST + 22;
+#endif
+#if CORE_ANALOG_COUNT >= 24
+const static uint8_t A23 = CORE_ANALOG_FIRST + 23;
+#endif
+#if CORE_ANALOG_COUNT >= 25
+const static uint8_t A24 = CORE_ANALOG_FIRST + 24;
+#endif
+#if CORE_ANALOG_COUNT >= 26
+const static uint8_t A25 = CORE_ANALOG_FIRST + 25;
+#endif
+#if CORE_ANALOG_COUNT >= 27
+const static uint8_t A26 = CORE_ANALOG_FIRST + 26;
+#endif
+#if CORE_ANALOG_COUNT >= 28
+const static uint8_t A27 = CORE_ANALOG_FIRST + 27;
+#endif
+#if CORE_ANALOG_COUNT >= 29
 #error Update the A* definitions for the selected processor.
 #endif
 

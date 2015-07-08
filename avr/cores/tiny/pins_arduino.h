@@ -52,7 +52,7 @@ extern const uint8_t PROGMEM port_to_mode_PGM[];
 extern const uint8_t PROGMEM port_to_input_PGM[];
 extern const uint8_t PROGMEM port_to_output_PGM[];
 extern const uint8_t PROGMEM port_to_pcmask_PGM[];
-#if defined(__AVR_ATtinyX41__) || defined(__AVR_ATtiny1634__)
+#if defined(__AVR_ATtinyX41__) || defined(__AVR_ATtiny1634__) || defined( __AVR_ATtiny828__ )
 extern const uint8_t PROGMEM port_to_pullup_PGM[];
 #endif
 extern const uint8_t PROGMEM digital_pin_to_port_PGM[];
@@ -121,7 +121,7 @@ extern const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[];
 #define PORT_A_ID 1
 #define PORT_B_ID 2
 #define PORT_C_ID 3
-#define PORT_C_ID 4
+#define PORT_D_ID 4
 
 
 

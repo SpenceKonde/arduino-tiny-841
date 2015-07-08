@@ -1008,7 +1008,7 @@ __attribute__((always_inline)) static inline void Timer0_SetCount( timer0_tcnt_t
 
 __attribute__((always_inline)) static inline uint8_t Timer0_IsOverflowSet( void )
 {
-  return( (TIFR & (1<<TOV0)) != 0 );
+  return( (TIFR0 & (1<<TOV0)) != 0 );
 }
 
 
@@ -1168,7 +1168,7 @@ __attribute__((always_inline)) static inline void Timer1_SetCount( timer1_tcnt_t
 
 __attribute__((always_inline)) static inline uint8_t Timer1_IsOverflowSet( void )
 {
-  return( (TIFR & (1<<TOV1)) != 0 );
+  return( (TIFR1 & (1<<TOV1)) != 0 );
 }
 
 #endif
