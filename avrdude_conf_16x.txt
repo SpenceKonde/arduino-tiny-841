@@ -127,7 +127,7 @@ part
   blocksize = 32;
   readsize  = 256;
        ;
-#   ATtiny841 has Signature Bytes: 0x1E 0x93 0x0C.
+#   ATtiny841 has Signature Bytes: 0x1E 0x93 0x15.
      memory "signature"
          size            = 3;
          read            = "0  0  1  1   0  0  0  0   0  0  0  x   x  x  x  x",
@@ -202,7 +202,7 @@ part
 ##  avr910_devcode   = ?;
 ##  Try the AT90S2313 devcode:
      ##avr910_devcode   = 0x20;
-     signature        = 0x1e 0x93 0x15;
+     signature        = 0x1e 0x92 0x15;
      reset            = io;
      chip_erase_delay = 4500;
 
@@ -313,7 +313,7 @@ part
   blocksize = 32;
   readsize  = 256;
        ;
-#   ATtiny441 has Signature Bytes: 0x1E 0x92 0x0C.
+#   ATtiny441 has Signature Bytes: 0x1E 0x92 0x15.
      memory "signature"
          size            = 3;
          read            = "0  0  1  1   0  0  0  0   0  0  0  x   x  x  x  x",
