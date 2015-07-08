@@ -19,73 +19,15 @@
   You should have received a copy of the GNU Lesser General Public License
   along with Arduino-Tiny.  If not, see <http://www.gnu.org/licenses/>.
 
+  Modified 2015 by Spence Konde/Dr. Azzy to add support for new chips and remove 
+  entries suppoted in the other core I'm maintaining. 
+
 ==============================================================================*/
 
 #ifndef core_pins_h
 #define core_pins_h
 
 #include "core_build_options.h"
-
-
-/*=============================================================================
-  Pin definitions for the ATtinyX313
-=============================================================================*/
-
-#if defined( __AVR_ATtinyX313__ )
-
-#define PIN_D0  ( 0)
-#define PIN_D1  ( 1)
-#define PIN_A1  ( 2)
-#define PIN_A0  ( 3)
-#define PIN_D2  ( 4)
-#define PIN_D3  ( 5)
-#define PIN_D4  ( 6)
-#define PIN_D5  ( 7)
-#define PIN_D6  ( 8)
-#define PIN_B0  ( 9)
-#define PIN_B1  (10)
-#define PIN_B2  (11)
-#define PIN_B3  (12)
-#define PIN_B4  (13)
-#define PIN_B5  (14)
-#define PIN_B6  (15)
-#define PIN_B7  (16)
-#define PIN_A2  (17)  /* RESET */
-
-#define CORE_DIGITAL_FIRST    (0)
-#define CORE_DIGITAL_LAST     (17)
-#define CORE_DIGITAL_COUNT    (CORE_DIGITAL_LAST-CORE_DIGITAL_FIRST+1)
-#define CORE_RESET_INCLUDED   (1)
-
-#define CORE_ANALOG_COUNT     (0)
-
-#define CORE_INT0_PIN  PIN_D2
-#define CORE_INT1_PIN  PIN_D3
-
-#define CORE_OC0A_PIN  PIN_B2
-#define CORE_OC0B_PIN  PIN_D5
-#define CORE_OC1A_PIN  PIN_B3
-#define CORE_OC1B_PIN  PIN_B4
-
-#define CORE_PWM0_PIN       CORE_OC0A_PIN
-#define CORE_PWM0_TIMER     0
-#define CORE_PWM0_CHANNEL   A
-
-#define CORE_PWM1_PIN       CORE_OC0B_PIN
-#define CORE_PWM1_TIMER     0
-#define CORE_PWM1_CHANNEL   B
-
-#define CORE_PWM2_PIN       CORE_OC1A_PIN
-#define CORE_PWM2_TIMER     1
-#define CORE_PWM2_CHANNEL   A
-
-#define CORE_PWM3_PIN       CORE_OC1B_PIN
-#define CORE_PWM3_TIMER     1
-#define CORE_PWM3_CHANNEL   B
-
-#define CORE_PWM_COUNT      (4)
-
-#endif
 
 
 /*=============================================================================
@@ -154,61 +96,6 @@
 
 #endif
 
-/*=============================================================================
-  Pin definitions for the ATtiny84
-=============================================================================*/
-
-#if defined( __AVR_ATtinyX4__ )
-
-#define PIN_A0  (10)
-#define PIN_A1  ( 9)
-#define PIN_A2  ( 8)
-#define PIN_A3  ( 7)
-#define PIN_A4  ( 6)
-#define PIN_A5  ( 5)
-#define PIN_A6  ( 4)
-#define PIN_A7  ( 3)
-#define PIN_B0  ( 0)
-#define PIN_B1  ( 1)
-#define PIN_B2  ( 2)
-#define PIN_B3  (11)  /* RESET */
-
-#define CORE_DIGITAL_FIRST    (0)
-#define CORE_DIGITAL_LAST     (11)
-#define CORE_DIGITAL_COUNT    (CORE_DIGITAL_LAST-CORE_DIGITAL_FIRST+1)
-#define CORE_RESET_INCLUDED   (1)
-
-#define CORE_ANALOG_FIRST     (CORE_DIGITAL_LAST+1)
-#define CORE_ANALOG_COUNT     (8)
-#define CORE_ANALOG_LAST      (CORE_ANALOG_FIRST+CORE_ANALOG_COUNT-1)
-
-#define CORE_INT0_PIN  PIN_B2
-
-#define CORE_OC0A_PIN  PIN_B2
-#define CORE_OC0B_PIN  PIN_A7
-#define CORE_OC1A_PIN  PIN_A6
-#define CORE_OC1B_PIN  PIN_A5
-
-#define CORE_PWM0_PIN       CORE_OC0A_PIN
-#define CORE_PWM0_TIMER     0
-#define CORE_PWM0_CHANNEL   A
-
-#define CORE_PWM1_PIN       CORE_OC0B_PIN
-#define CORE_PWM1_TIMER     0
-#define CORE_PWM1_CHANNEL   B
-
-#define CORE_PWM2_PIN       CORE_OC1A_PIN
-#define CORE_PWM2_TIMER     1
-#define CORE_PWM2_CHANNEL   A
-
-#define CORE_PWM3_PIN       CORE_OC1B_PIN
-#define CORE_PWM3_TIMER     1
-#define CORE_PWM3_CHANNEL   B
-
-#define CORE_PWM_COUNT      (4)
-
-#endif
-
 
 /*=============================================================================
   Pin definitions for the ATtiny1634
@@ -272,61 +159,72 @@
 
 #endif
 
-/*=============================================================================
-  Pin definitions for the ATtiny85
-=============================================================================*/
+#if defined( __AVR_ATtiny828__ )
 
-#if defined( __AVR_ATtinyX5__ )
-
-#define PIN_B0  ( 0)
-#define PIN_B1  ( 1)
-#define PIN_B2  ( 2)
-#define PIN_B3  ( 3)
-#define PIN_B4  ( 4)
-#define PIN_B5  ( 5)  /* RESET */
+#define PIN_A0  ( 0)
+#define PIN_A1  ( 1)
+#define PIN_A2  ( 2)
+#define PIN_A3  ( 3)
+#define PIN_A4  ( 4)
+#define PIN_A5  ( 5)
+#define PIN_A6  ( 6)
+#define PIN_A7  ( 7)
+#define PIN_B0  ( 8)
+#define PIN_B1  ( 9)
+#define PIN_B2  (10)
+#define PIN_B3  (11)
+#define PIN_B4  (12)
+#define PIN_B5  (13)
+#define PIN_B6  (14)
+#define PIN_B7  (15)
+#define PIN_C0  (16)
+#define PIN_C1  (17) 
+#define PIN_C2  (18)
+#define PIN_C3  (19)
+#define PIN_C4  (20)
+#define PIN_C5  (21)
+#define PIN_C6  (22)
+#define PIN_C7  (23)
+#define PIN_D0  (24)
+#define PIN_D1  (25)
+#define PIN_D2  (26)  /* RESET */
+#define PIN_D3  (27)
 
 #define CORE_DIGITAL_FIRST    (0)
-#define CORE_DIGITAL_LAST     (5)
+#define CORE_DIGITAL_LAST     (27)
 #define CORE_DIGITAL_COUNT    (CORE_DIGITAL_LAST-CORE_DIGITAL_FIRST+1)
 #define CORE_RESET_INCLUDED   (1)
 
-#define CORE_ANALOG_FIRST     (CORE_DIGITAL_LAST+1)
-#define CORE_ANALOG_COUNT     (4)
+#define CORE_ANALOG_FIRST     (0)
+#define CORE_ANALOG_COUNT     (27) // 12 + internal temperature sensor
 #define CORE_ANALOG_LAST      (CORE_ANALOG_FIRST+CORE_ANALOG_COUNT-1)
 
-#define CORE_INT0_PIN  PIN_B2
+#define CORE_INT0_PIN  PIN_C1
+#define CORE_INT1_PIN  PIN_C2
 
-#define CORE_OC0A_PIN  PIN_B0
-#define CORE_OC0B_PIN  PIN_B1
-#define CORE_OC1A_PIN  PIN_B1
-#define CORE_OC1B_PIN  PIN_B4
-
-/* Note: By default, CORE_OC1A_PIN is not used for PWM.  It overlaps with
-CORE_OC0B_PIN.  CORE_OC0B_PIN was used because it supports phase-correct PWM.
-There is a build option in "core_build_options.h" to determine which channel
-to use */
+#define CORE_OC0A_PIN  PIN_C0
+#define CORE_OC0B_PIN  PIN_C4
+#define CORE_OC1A_PIN  PIN_C5
+#define CORE_OC1B_PIN  PIN_C6
 
 #define CORE_PWM0_PIN       CORE_OC0A_PIN
 #define CORE_PWM0_TIMER     0
 #define CORE_PWM0_CHANNEL   A
 
-#if FAVOR_PHASE_CORRECT_PWM
 #define CORE_PWM1_PIN       CORE_OC0B_PIN
 #define CORE_PWM1_TIMER     0
 #define CORE_PWM1_CHANNEL   B
-#else
-#define CORE_PWM1_PIN       CORE_OC1A_PIN
-#define CORE_PWM1_TIMER     1
-#define CORE_PWM1_CHANNEL   A
-#endif
 
-#define CORE_PWM2_PIN       CORE_OC1B_PIN
+#define CORE_PWM2_PIN       CORE_OC1A_PIN
 #define CORE_PWM2_TIMER     1
-#define CORE_PWM2_CHANNEL   B
+#define CORE_PWM2_CHANNEL   A
 
-#define CORE_PWM_COUNT      (3)
+#define CORE_PWM3_PIN       CORE_OC1B_PIN
+#define CORE_PWM3_TIMER     1
+#define CORE_PWM3_CHANNEL   B
+
+#define CORE_PWM_COUNT      (4)
+
 
 #endif
-
-
 #endif

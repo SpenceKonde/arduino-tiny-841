@@ -266,6 +266,11 @@ void init(void)
     #if defined(__AVR_ATtinyX41__) 
       initTimer841();
     #endif
+    #if defined(__AVR_ATtiny828__)
+      TOCPMSA0=0b00010000;
+      TOCPMSA1=0b10100100;
+      TOCPMCOE=0b11111100;
+    #endif
   #endif
 
   

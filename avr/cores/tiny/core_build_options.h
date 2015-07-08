@@ -32,38 +32,6 @@
 #define INITIALIZE_ANALOG_TO_DIGITAL_CONVERTER    1
 #define INITIALIZE_SECONDARY_TIMERS               1
 
-
-/*=============================================================================
-  Build options for the ATtinyX313 processor
-=============================================================================*/
-
-#if defined( __AVR_ATtiny2313__ ) || defined( __AVR_ATtiny4313__ )
-#define __AVR_ATtinyX313__
-#endif
-
-#if defined( __AVR_ATtinyX313__ )
-
-/*
-  The old standby ... millis on Timer 0.
-*/
-#define TIMER_TO_USE_FOR_MILLIS                   0
-
-/*
-  Tone goes on whichever timer was not used for millis.
-*/
-#if TIMER_TO_USE_FOR_MILLIS == 1
-#define TIMER_TO_USE_FOR_TONE                     0
-#else
-#define TIMER_TO_USE_FOR_TONE                     1
-#endif
-
-#define HAVE_ADC                                  0
-
-#define DEFAULT_TO_TINY_DEBUG_SERIAL              0
-
-#endif
-
-
 /*=============================================================================
   Build options for the ATtiny841 processor
 =============================================================================*/
@@ -110,9 +78,9 @@
 #define PCINT12 4
 
 /*=============================================================================
-  Build options for the ATtiny1634 processor
+  Build options for the ATtiny1634 processor and other boring ones
 =============================================================================*/
-#if defined( __AVR_ATtiny1634__ )
+#if defined( __AVR_ATtiny1634__ ) || defined(__AVR_ATtiny828__ )
 /*
   The old standby ... millis on Timer 0.
 */

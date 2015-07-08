@@ -89,11 +89,14 @@ analogReference constants for ATmega168.  These are NOT correct for the ATtiny84
 */
 
 
-#if defined( __AVR_ATtinyX313__ )
+#if defined( __AVR_ATtiny828__ )
 
+// VCC used as analog reference, disconnected from PA0 (AREF)
 #define DEFAULT (0)
 
-#elif defined( __AVR_ATtinyX4__ )|| defined( __AVR_ATtiny1634__ )
+#define INTERNAL (1)
+
+#elif  defined( __AVR_ATtiny1634__ )
 
 // VCC used as analog reference, disconnected from PA0 (AREF)
 #define DEFAULT (0)
@@ -103,24 +106,6 @@ analogReference constants for ATmega168.  These are NOT correct for the ATtiny84
 
 // Internal 1.1V voltage reference
 #define INTERNAL (2)
-
-#elif defined( __AVR_ATtinyX5__ )
-
-// X 0 0 VCC used as Voltage Reference, disconnected from PB0 (AREF).
-#define DEFAULT (0)
-
-// X 0 1 External Voltage Reference at PB0 (AREF) pin, Internal Voltage Reference turned off.
-#define EXTERNAL (1)
-
-// 0 1 0 Internal 1.1V Voltage Reference.
-#define INTERNAL (2)
-#define INTERNAL1V1 INTERNAL
-
-// 1 1 1 Internal 2.56V Voltage Reference with external bypass capacitor at PB0 (AREF) pin(1).
-#define INTERNAL2V56 (7)
-
-// An alternative for INTERNAL2V56 is (6) ...
-// 1 1 0 Internal 2.56V Voltage Reference without external bypass capacitor, disconnected from PB0 (AREF)(1).
 
 #elif defined( __AVR_ATtinyX41__ )
 
