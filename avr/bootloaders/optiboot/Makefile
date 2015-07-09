@@ -249,7 +249,7 @@ attiny1634at16: $(PROGRAM)_attiny1634at16.lst
 
 attiny1634at8: TARGET = attiny1634
 attiny1634at8: MCU_TARGET = attiny1634
-attiny1634at8: CFLAGS += $(COMMON_OPTIONS) '-DVIRTUAL_BOOT_PARTITION' '-DFOURPAGEERASE'
+attiny1634at8: CFLAGS += $(COMMON_OPTIONS) '-DVIRTUAL_BOOT_PARTITION' '-DFOURPAGEERASE'  '-DBAUD_RATE=57600'
 attiny1634at8: AVR_FREQ ?= 8000000L
 attiny1634at8: LDSECTIONS  = -Wl,--section-start=.text=0x3d80 -Wl,--section-start=.version=0x3ffe
 attiny1634at8: $(PROGRAM)_attiny1634at8.hex
@@ -273,12 +273,19 @@ attiny841at16: $(PROGRAM)_attiny841at16.lst
 
 attiny841at8: TARGET = attiny841
 attiny841at8: MCU_TARGET = attiny841
-attiny841at8: CFLAGS += $(COMMON_OPTIONS) '-DVIRTUAL_BOOT_PARTITION' '-DFOURPAGEERASE'
+attiny841at8: CFLAGS += $(COMMON_OPTIONS) '-DVIRTUAL_BOOT_PARTITION' '-DFOURPAGEERASE'  '-DBAUD_RATE=57600'
 attiny841at8: AVR_FREQ ?= 8000000L
 attiny841at8: LDSECTIONS  = -Wl,--section-start=.text=0x1d80 -Wl,--section-start=.version=0x1ffe
 attiny841at8: $(PROGRAM)_attiny841at8.hex
 attiny841at8: $(PROGRAM)_attiny841at8.lst
 
+attiny828at8: TARGET = attiny828
+attiny828at8: MCU_TARGET = attiny828
+attiny828at8: CFLAGS += $(COMMON_OPTIONS) '-DBAUD_RATE=57600'
+attiny828at8: AVR_FREQ ?= 8000000L
+attiny828at8: LDSECTIONS  = -Wl,--section-start=.text=0x1E00 -Wl,--section-start=.version=0x1ffe
+attiny828at8: $(PROGRAM)_attiny828at8.hex
+attiny828at8: $(PROGRAM)_attiny828at8.lst
 
 attiny841at20noLED: TARGET = attiny841
 attiny841at20noLED: MCU_TARGET = attiny841
@@ -298,9 +305,9 @@ attiny841at16noLED: $(PROGRAM)_attiny841at16noLED.lst
 
 attiny841at8noLED: TARGET = attiny841
 attiny841at8noLED: MCU_TARGET = attiny841
-attiny841at8noLED: CFLAGS += $(COMMON_OPTIONS) '-DVIRTUAL_BOOT_PARTITION' '-DFOURPAGEERASE' '-DLED_START_FLASHES=0'
+attiny841at8noLED: CFLAGS += $(COMMON_OPTIONS) '-DVIRTUAL_BOOT_PARTITION' '-DFOURPAGEERASE' '-DLED_START_FLASHES=0'  '-DBAUD_RATE=57600'
 attiny841at8noLED: AVR_FREQ ?= 8000000L
-attiny841at8noLED: LDSECTIONS  = -Wl,--section-start=.text=0x1dc0 -Wl,--section-start=.version=0x1ffe
+attiny841at8noLED: LDSECTIONS  = -Wl,--section-start=.text=0x1dc0 -Wl,--section-start=.version=0x1ffe 
 attiny841at8noLED: $(PROGRAM)_attiny841at8noLED.hex
 attiny841at8noLED: $(PROGRAM)_attiny841at8noLED.lst
 

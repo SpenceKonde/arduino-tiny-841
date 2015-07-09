@@ -24,11 +24,19 @@
  * differently.
  */
 #if UART == 0
-# define UART_SRA UCSR0A
-# define UART_SRB UCSR0B
-# define UART_SRC UCSR0C
-# define UART_SRL UBRR0L
-# define UART_UDR UDR0
+#if defined(UDR0)
+#define UART_SRA UCSR0A
+#define UART_SRB UCSR0B
+#define UART_SRC UCSR0C
+#define UART_SRL UBRR0L
+#define UART_UDR UDR0
+#else 
+#define UART_SRA UCSRA
+#define UART_SRB UCSRB
+#define UART_SRC UCSRC
+#define UART_SRL UBRRL
+#define UART_UDR UDR
+#endif
 #elif UART == 1
 #if !defined(UDR1)
 #error UART == 1, but no UART1 on device
@@ -58,7 +66,7 @@
 # define UART_UDR UDR3
 #endif
 
-#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega32__)
+#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega828__)
   //Name conversion R.Wiersma
   #define UCSR0A	UCSRA
   #define UDR0 		UDR
@@ -164,6 +172,34 @@
 #define UART_RX_BIT 3
 #endif
 #endif
+
+/*------------------------------------------------------------------------ */
+#if defined(__AVR_ATtiny828__)
+/*------------------------------------------------------------------------ */
+/* LED is on B2 */
+#if !defined(LED)
+#define LED 	B0
+#endif
+
+#define UDRE0 UDRE 
+#define FE0 FE 
+#define RXC0 RXC
+#define UCSZ00 UCSZ0
+#define UCSZ01 UCSZ1 
+#define TXEN0 TXEN
+#define RXEN0 RXEN
+#define U2X0 U2X
+
+
+#ifdef SOFT_UART
+#define UART_PORT   PORTA
+#define UART_PIN    PINA
+#define UART_DDR    DDRA
+#define UART_TX_BIT 2
+#define UART_RX_BIT 3
+#endif
+#endif
+
 
 /*
  * ------------------------------------------------------------------------

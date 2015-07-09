@@ -462,7 +462,7 @@ int main(void) {
 #endif
 
 #ifndef SOFT_UART
-#if defined(__AVR_ATmega8__) || defined (__AVR_ATmega32__)
+#if defined(__AVR_ATmega8__) || defined (__AVR_ATmega32__) 
   UCSRA = _BV(U2X); //Double speed mode USART
   UCSRB = _BV(RXEN) | _BV(TXEN);  // enable Rx & Tx
   UCSRC = _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0);  // config USART; 8N1
