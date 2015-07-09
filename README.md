@@ -1,11 +1,14 @@
-arduino-tiny-841
+ATTiny Modern - 441, 841, 828, 1634
 ============
 
 A fork of shimniok's ( github.com/shimniok ) fork of arduino-tiny, which made an attempt to support the Tiny841. All work appears to have stopped on that core, and it was never in a state where sketches could be compiled (it looks like the initial work was never completed). 
 
 This fork aims to finish what he started and add working support for the ATtiny841 on Arduino. 
 
-Additionally, it brings in support for the ATTiny1634, brought in from rambo's 1.0.6 ATTiny1634 core. 
+Additionally, it brings in support for the ATTiny1634, brought in from rambo's 1.0.6 ATTiny1634 core, and the ATTiny828
+
+*AS OF 7/9/2015 PLEASE RE-BURN BOOTLOADER TO ANY 8MHZ BOARDS*
+I was too ambitious trying to make these work at 115200 baud upload, and it wound up being incredibly picky. Seems to work reliably at 57600. 
 
 Status
 ===========
