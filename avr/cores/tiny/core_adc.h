@@ -238,7 +238,7 @@ adc_vr_t;
 
 __attribute__((always_inline)) static inline void ADC_SetVoltageReference( adc_vr_t vr )
 {
-  ADMUXB = (ADMUXB & ~MASK(REFS)) | ((vr & 1) << REFS);
+  ADMUXB = (ADMUXB & ~MASK1(REFS)) | ((vr & 1) << REFS);
 }
 
 __attribute__((always_inline)) static inline void ADC_SetInputChannel( uint8_t ic )
