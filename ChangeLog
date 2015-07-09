@@ -1,3 +1,16 @@
+7/9/2015: 
+* Fix bootloader at 8mhz - please reburn bootloader for all 8mhz boards.
+* Fix attiny828 bootloader and basic functionality
+
+7/7/2015:
+* Add basic support for 828
+
+6/28/2015:
+* Major improvements to boards.txt so it has sub-menus. 
+
+6/10/2015:
+* Corrected serious bug with INPUT_PULLUP
+
 5/1/2015:
 * Fix bootloader tiny1634 maximum size spec. 
 * Add 12mhz bootloader for tiny1634
