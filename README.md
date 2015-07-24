@@ -54,7 +54,7 @@ Suitable breakout boards can be purchased from my Tindie shop:
 Installation
 ============
 
-INSTALLATION
+### All versions
 
 First ensure the Arduino software is correctly installed, and that the IDE is not running during the installation process. 
 
@@ -73,6 +73,7 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
   After extracting, the following files / folders should exist...
 
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\LICENSE
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avrdude.conf
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avrdude_conf16x.txt
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avrdude_conf106.txt
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\Boards106.txt
@@ -89,6 +90,11 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
   core...
 
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\cores\
+* If YOU ARE USING ARDUINO VERSION 1.6.2 (not 1.6.3 or later, nor 1.6.1 or earlier), delete platform.txt and rename platform_162.txt to platform.txt. In this case, you must follow the steps below to modify avrdude.conf. I strongly recommend updating if you are still using 1.6.2, as this version has serious defects in the loading of third party hardware definitions.
+* At this point, the core should work!
+
+### 1.0.x, and 1.6.x if you get unknown part errors
+On 1.6.x, if platform.txt is correctly used by the IDE, you will not need to perform these steps, however this functionality of the IDE is super-flaky. On 1.0.x, this step is always required. 
 
 * Locate avrdude.conf - typically in 
   C:\Program Files (x86)\Arduino\tools\avr\etc 
@@ -99,8 +105,6 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
   and click the checkbox to Allow Full Control. Apply.
 
 * Open avrdude.conf using any text editor. At the end of the file, copy+paste the contents of avrdude_conf_16x or 106 (depending on which version of the IDE you are using)
-
-* If YOU ARE USING ARDUINO VERSION 1.6.2 (not 1.6.3 or later, nor 1.6.1 or earlier), delete platform.txt and rename platform_162.txt to platform.txt. 
 
 * If you are using Arduino 1.0.x, move the contents of C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\ to C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\ 
 
