@@ -58,14 +58,13 @@ Installation
 
 First ensure the Arduino software is correctly installed, and that the IDE is not running during the installation process. 
 
-
 * Locate your Arduino Sketch folder.  This is the folder where the Arduino IDE
   stores Sketches, typically located in your Documents folder. 
 
 * Ensure the "hardware" folder exists under the Arduino Sketch folder. If it is not there, create it. 
 
 * Download Arduino-Tiny-841 from github as a ZIP file, and extract it into the 
-  "hardware" folder, or simply clone the github repo into there.  For example,
+  "hardware" folder. Alternately, you can clone the github repo to that location - this allows you to simply sync it to pick up the latest changes to the core.  For example,
   if the Arduino Sketch folder is...
 
       C:\Users\YourName\Documents\Arduino
