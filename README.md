@@ -95,17 +95,27 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
 ### 1.0.x, and 1.6.x if you get unknown part errors
 On 1.6.x, if platform.txt is correctly used by the IDE, you will not need to perform these steps, however this functionality of the IDE is super-flaky. On 1.0.x, this step is always required. 
 
-* Locate avrdude.conf - typically in 
-  C:\Program Files (x86)\Arduino\tools\avr\etc 
+* Windows
 
-* If you are using Windows Vista or later, right-click avrdude.conf and
-  choose the Security tab. Select "Users", and see if there is a checkmark 
-  in the "Allow" column for "Full Control". If not, click Edit, select Users, 
-  and click the checkbox to Allow Full Control. Apply.
+  * Locate avrdude.conf - typically in 
+    C:\Program Files (x86)\Arduino\tools\avr\etc 
 
-* Open avrdude.conf using any text editor. At the end of the file, copy+paste the contents of avrdude_conf_16x or 106 (depending on which version of the IDE you are using)
+  * If you are using Windows Vista or later, right-click avrdude.conf and
+    choose the Security tab. Select "Users", and see if there is a checkmark 
+    in the "Allow" column for "Full Control". If not, click Edit, select Users, 
+    and click the checkbox to Allow Full Control. Apply.
 
-* If you are using Arduino 1.0.x, move the contents of C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\ to C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\ 
+  * Open avrdude.conf using any text editor. At the end of the file, copy+paste the contents of avrdude_conf_16x or 106 (depending on which version of the IDE you are using)
+
+  * If you are using Arduino 1.0.x, move the contents of  C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\ to C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\ 
+
+* OSX
+
+  * Assuming you are using Arduino 1.6.x (*Atmel doesn't provide an AVR toolchain for Mac, so you couldn't update the compiler toolchain as instructed below for 1.0.x*), open terminal and run this command: (change to match your Arduino Sketch directory if it is something other than `~/Documents/Arduino`)
+
+````
+cat ~/Documents/Arduino/hardware/arduino-tiny-841/avrdude_conf_16x.txt | pbcopy && pbpaste >> /Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf
+````
 
 *IF YOU ARE USING ARDUINO 1.0.x, you must update the compiler toolchain* 
   
