@@ -30,6 +30,7 @@
 #include "core_pins.h"
 #include "core_build_options.h"
 #include "core_macros.h"
+#include "core_atomic.h"
 
 
 /*=============================================================================
@@ -224,13 +225,19 @@ __attribute__((always_inline)) static inline void Timer1_SetToPowerup( void )
   TCCR1B = (0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (0<<CS11) | (0<<CS10);
   // Disconnect the timer from the output pins, Set Waveform Generation Mode to Normal
   TCCR1A = (0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (0<<WGM10);
-  // Reset the count to zero
-  TCNT1 = 0;
-  // Set the output compare registers to zero
-  OCR1A = 0;
-  OCR1B = 0;
-  // Clear the input capture?
-  // ICR1 = 0;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC(
+    // Reset the count to zero
+    TCNT1 = 0;
+    // Set the output compare registers to zero
+    OCR1A = 0;
+    OCR1B = 0;
+    // Clear the input capture?
+    // ICR1 = 0;
+  )
   // Disable all Timer1 interrupts
   TIMSK1 &= ~MASK4(TOIE1,OCIE1A,OCIE1B,ICIE1);
   // Clear the Timer1 interrupt flags
@@ -334,17 +341,29 @@ typedef uint16_t timer1_tcnt_t;
 
 __attribute__((always_inline)) static inline void Timer1_SetOutputCompareMatchAndClear( timer1_ocr_t oc )
 {
-  OCR1A = oc;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC( OCR1A = oc; )
 }
 
 __attribute__((always_inline)) static inline void Timer1_SetOutputCompareMatchA( timer1_ocr_t oc )
 {
-  OCR1A = oc;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC( OCR1A = oc; )
 }
 
 __attribute__((always_inline)) static inline void Timer1_SetOutputCompareMatchB( timer1_ocr_t oc )
 {
-  OCR1B = oc;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC( OCR1B = oc; )
 }
 
 __attribute__((always_inline)) static inline void Timer1_EnableOutputCompareInterruptA( void )
@@ -359,12 +378,22 @@ __attribute__((always_inline)) static inline void Timer1_EnableOverflowInterrupt
 
 __attribute__((always_inline)) static inline timer1_tcnt_t Timer1_GetCount( void )
 {
-  return( TCNT1 );
+  timer1_tcnt_t v;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC( v = TCNT1; )
+  return( v );
 }
 
 __attribute__((always_inline)) static inline void Timer1_SetCount( timer1_tcnt_t v )
 {
-  TCNT1 = v;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC( TCNT1 = v; )
 }
 
 __attribute__((always_inline)) static inline uint8_t Timer1_IsOverflowSet( void )
@@ -384,13 +413,19 @@ __attribute__((always_inline)) static inline void Timer2_SetToPowerup( void )
   TCCR2B = (0<<ICNC2) | (0<<ICES2) | (0<<WGM23) | (0<<WGM22) | (0<<CS22) | (0<<CS21) | (0<<CS20);
   // Disconnect the timer from the output pins, Set Waveform Generation Mode to Normal
   TCCR2A = (0<<COM2A1) | (0<<COM2A0) | (0<<COM2B1) | (0<<COM2B0) | (0<<WGM21) | (0<<WGM20);
-  // Reset the count to zero
-  TCNT2 = 0;
-  // Set the output compare registers to zero
-  OCR2A = 0;
-  OCR2B = 0;
-  // Clear the input capture?
-  // ICR1 = 0;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC(
+    // Reset the count to zero
+    TCNT2 = 0;
+    // Set the output compare registers to zero
+    OCR2A = 0;
+    OCR2B = 0;
+    // Clear the input capture?
+    // ICR2 = 0;
+  )
   // Disable all Timer1 interrupts
   TIMSK2 &= ~MASK4(TOIE2,OCIE2A,OCIE2B,ICIE2);
   // Clear the Timer1 interrupt flags
@@ -494,17 +529,29 @@ typedef uint16_t timer2_tcnt_t;
 
 __attribute__((always_inline)) static inline void Timer2_SetOutputCompareMatchAndClear( timer2_ocr_t oc )
 {
-  OCR2A = oc;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC( OCR2A = oc; )
 }
 
 __attribute__((always_inline)) static inline void Timer2_SetOutputCompareMatchA( timer2_ocr_t oc )
 {
-  OCR2A = oc;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC( OCR2A = oc; )
 }
 
 __attribute__((always_inline)) static inline void Timer2_SetOutputCompareMatchB( timer2_ocr_t oc )
 {
-  OCR2B = oc;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC( OCR2B = oc; )
 }
 
 __attribute__((always_inline)) static inline void Timer2_EnableOutputCompareInterruptA( void )
@@ -519,12 +566,22 @@ __attribute__((always_inline)) static inline void Timer2_EnableOverflowInterrupt
 
 __attribute__((always_inline)) static inline timer2_tcnt_t Timer2_GetCount( void )
 {
-  return( TCNT2 );
+  timer2_tcnt_t v;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC( v = TCNT2; )
+  return( v );
 }
 
 __attribute__((always_inline)) static inline void Timer2_SetCount( timer2_tcnt_t v )
 {
-  TCNT2 = v;
+  /*
+    16bit Timer1/2 registers use a shared 8bit register for the high byte.
+    Data access must be made atomic or else risk corruption.
+  */
+  MAKE_ATOMIC( TCNT2 = v; )
 }
 
 __attribute__((always_inline)) static inline uint8_t Timer2_IsOverflowSet( void )
@@ -669,12 +726,12 @@ __attribute__((always_inline)) static inline void Timer0_SetOutputCompareMatchB(
 __attribute__((always_inline)) static inline void Timer0_EnableOutputCompareInterruptA( void )
 {
   TIMSK |= (1<<OCIE0A);
-} 
+}
 
 __attribute__((always_inline)) static inline void Timer0_EnableOverflowInterrupt( void )
 {
   TIMSK |= (1<<TOIE0);
-} 
+}
 
 __attribute__((always_inline)) static inline timer0_tcnt_t Timer0_GetCount( void )
 {
@@ -829,12 +886,12 @@ __attribute__((always_inline)) static inline void Timer1_SetOutputCompareMatchB(
 __attribute__((always_inline)) static inline void Timer1_EnableOutputCompareInterruptA( void )
 {
   TIMSK |= (1<<OCIE1A);
-} 
+}
 
 __attribute__((always_inline)) static inline void Timer1_EnableOverflowInterrupt( void )
 {
   TIMSK |= (1<<TOIE1);
-} 
+}
 
 __attribute__((always_inline)) static inline timer1_tcnt_t Timer1_GetCount( void )
 {
@@ -989,12 +1046,12 @@ __attribute__((always_inline)) static inline void Timer0_SetOutputCompareMatchB(
 __attribute__((always_inline)) static inline void Timer0_EnableOutputCompareInterruptA( void )
 {
   TIMSK0 |= (1<<OCIE0A);
-} 
+}
 
 __attribute__((always_inline)) static inline void Timer0_EnableOverflowInterrupt( void )
 {
   TIMSK0 |= (1<<TOIE0);
-} 
+}
 
 __attribute__((always_inline)) static inline timer0_tcnt_t Timer0_GetCount( void )
 {
@@ -1149,12 +1206,12 @@ __attribute__((always_inline)) static inline void Timer1_SetOutputCompareMatchB(
 __attribute__((always_inline)) static inline void Timer1_EnableOutputCompareInterruptA( void )
 {
   TIMSK1 |= (1<<OCIE1A);
-} 
+}
 
 __attribute__((always_inline)) static inline void Timer1_EnableOverflowInterrupt( void )
 {
   TIMSK1 |= (1<<TOIE1);
-} 
+}
 
 __attribute__((always_inline)) static inline timer1_tcnt_t Timer1_GetCount( void )
 {
