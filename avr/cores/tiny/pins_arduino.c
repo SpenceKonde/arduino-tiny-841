@@ -250,12 +250,12 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
 //{
 //  NOT_ON_TIMER,
 //  NOT_ON_TIMER,
-//  TIMER2B, /* TOCC7 */
-//  TIMER2A, /* TOCC6 */
-//  TIMER1B, /* TOCC5 */
-//  TIMER0A, /* TOCC4 - this is shared with serial 1*/
-//  TIMER0B, /* TOCC3 - this is shared with serial 1 so let's give it the least desirable timer */
-//  TIMER1A, /* TOCC2 */
+//  TIMER2A, /* TOCC7 */
+//  TIMER2B, /* TOCC6 */
+//  TIMER1A, /* TOCC5 */
+//  TIMER0B, /* TOCC4 - this is shared with serial 1*/
+//  TIMER0A, /* TOCC3 - this is shared with serial 1 so let's give it the least desirable timer */
+//  TIMER1B, /* TOCC2 */
 //  NOT_ON_TIMER, //This could have pwm, but it's serial 0, and we only get PWM on 6 of the 8 pins at once.
 //  NOT_ON_TIMER, //see above.
 //  NOT_ON_TIMER,

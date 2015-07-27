@@ -63,10 +63,10 @@
 // TODO: ATtiny841 Datasheet Table 12-7, TOCCn pins can be assigned various OCnX. Rationale for these choices is that - TOCC0/1 are the primary pins for UART0, while TOCC3/4 are shared with UART1. So might as well make them the least desirable timer. 
 #define CORE_OC0A_PIN  PIN_A4 // TOCC3 
 #define CORE_OC0B_PIN  PIN_A5 // TOCC4 
-#define CORE_OC1A_PIN  PIN_A3 // TOCC2
-#define CORE_OC1B_PIN  PIN_A6 // TOCC5
-#define CORE_OC2A_PIN  PIN_A7 // TOCC6
-#define CORE_OC2B_PIN  PIN_B2 // TOCC7
+#define CORE_OC1A_PIN  PIN_A6 // TOCC5
+#define CORE_OC1B_PIN  PIN_A3 // TOCC2
+#define CORE_OC2A_PIN  PIN_B2 // TOCC7
+#define CORE_OC2B_PIN  PIN_A7 // TOCC6
 
 #define CORE_PWM0_PIN       CORE_OC0A_PIN
 #define CORE_PWM0_TIMER     0
@@ -78,19 +78,19 @@
 
 #define CORE_PWM2_PIN       CORE_OC1A_PIN
 #define CORE_PWM2_TIMER     1
-#define CORE_PWM2_CHANNEL   B //can't figure out why these need to be swapped, but they seem to :-/ 
+#define CORE_PWM2_CHANNEL   A
 
 #define CORE_PWM3_PIN       CORE_OC1B_PIN
 #define CORE_PWM3_TIMER     1
-#define CORE_PWM3_CHANNEL   A
+#define CORE_PWM3_CHANNEL   B
 
 #define CORE_PWM4_PIN       CORE_OC2A_PIN
 #define CORE_PWM4_TIMER     2
-#define CORE_PWM4_CHANNEL   B
+#define CORE_PWM4_CHANNEL   A
 
 #define CORE_PWM5_PIN       CORE_OC2B_PIN
 #define CORE_PWM5_TIMER     2
-#define CORE_PWM5_CHANNEL   A
+#define CORE_PWM5_CHANNEL   B
 
 #define CORE_PWM_COUNT      (6)
 
