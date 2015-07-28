@@ -13,7 +13,7 @@ I was too ambitious trying to make these work at 115200 baud upload, and it woun
 Status
 ===========
 
-* Optiboot bootloader included, and works
+* Optiboot bootloader included, and works.
 * Includes board definitions + optiboot for 841 at 8mhz,  16mhz, and 20mhz (overclocked), and 1634 at 8mhz and 12mhz.
 * Serial and Serial1 work. 
 * INPUT_PULLUP works
@@ -27,6 +27,7 @@ Status
 * I2C/TWI software master appears to work: https://github.com/todbot/SoftI2CMaster
 * On the Tiny1634, there is a USI, which should work with the existing USI libraries to function as I2C master. 
 * Pin change interrupts work.
+* On the 1634 and 841, when using the Optiboot bootloader, the Watchdog Timer interrupt vector will always point to the start of the program, and cannot be used for other functionality. Because the 1634 and 841 do not have built-in bootloader support, this is achieved with "virtual boot" feature of Optiboot. This bootloader rewrites the reset and WDT interrupt vectors, pointing the WDT vector at the start of the program (where the reset vector would have pointed), and the reset vector to the bootloader (as there is no BOOTRST fuse). This does not effect the 828 (it has hardware bootloader support), nor does it effect the 1634 or 841 if they are programmed via ISP.
 * Some people have problems programming it with USBAsp and TinyISP. I used to, but today I tried, having changed nothing, and my USBAsp works just fine. Funky stuff. ArduinoAsISP works reliably (albeit slowly)
 * Optiboot without the LED blink (noLED) for 841 included; this saves 64 bytes of flash (not used by default - modify boards.txt if needed)
 * Board Manager support planned once the dust around that feature settles. 
