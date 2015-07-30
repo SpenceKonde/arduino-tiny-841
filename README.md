@@ -13,8 +13,8 @@ I was too ambitious trying to make these work at 115200 baud upload, and it woun
 Status
 ===========
 
-* Optiboot bootloader included, and works.
-* Includes board definitions + optiboot for 841 at 8mhz,  16mhz, and 20mhz (overclocked), and 1634 at 8mhz and 12mhz.
+* Optiboot bootloader included, and works on the '841 (8, 16, 20mhz), and 1634 (8, 12, 16mhz), 828 (8mhz)
+* Board definitions for 441/841 @ 1, 8, 12, 16, 20mhz, 1634 @ 1, 8, 12, 16 mhz, 828 @ 1, 8 mhz (it doesn't support a crystal)
 * Serial and Serial1 work. 
 * INPUT_PULLUP works
 * millis and micros work
