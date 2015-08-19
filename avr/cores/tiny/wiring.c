@@ -24,6 +24,7 @@
   Modified 28-08-2009 for attiny84 R.Wiersma
   Modified 14-10-2009 for attiny45 Saposoft
   Modified 20-11-2010 - B.Cook - Rewritten to use the various Veneers.
+  Modified 19-08-2015 for Attiny841/1634/828 and for uart clock support S. Konde
 */
 
 #include "core_build_options.h"
