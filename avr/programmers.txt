@@ -26,7 +26,12 @@ parallel.protocol=dapa
 parallel.force=true
 # parallel.delay=200
 
-arduinoisp.name=Arduino as ISP
-arduinoisp.communication=serial
-arduinoisp.protocol=stk500v1
-arduinoisp.speed=19200
+arduinoasisp.name=Arduino as ISP
+arduinoasisp.communication=serial
+arduinoasisp.protocol=stk500v1
+arduinoasisp.speed=19200
+arduinoasisp.program.protocol=stk500v1
+arduinoasisp.program.speed=19200
+arduinoasisp.program.tool=avrdude
+arduinoasisp.program.extra_params=-P{serial.port} -b{program.speed}
+
