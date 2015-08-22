@@ -10,6 +10,13 @@ Additionally, it brings in support for the ATTiny1634, brought in from rambo's 1
 *AS OF 7/9/2015 PLEASE RE-BURN BOOTLOADER TO ANY 8MHZ BOARDS*
 I was too ambitious trying to make these work at 115200 baud upload, and it wound up being incredibly picky. Seems to work reliably at 57600. 
 
+(as of 8/22/2015, I finally figured out how this worked)
+*WHEN BURNING BOOTLOADER OR UPLOADING WITHOUT BOOTLOADER, SELECT PROGRAMMER MARKED ATTINY MODERN FROM TOOLS->PROGRAMMER*
+The others WILL NOT WORK for most of these chips. 
+In the interest of keeping the menu clean, only the most popular programmers are enabled by default. If you want one of the others, you can uncomment it's entry in programmers.txt. 
+
+Unfortunately, it's not possible to tell it to use a different version of avrdude.conf without adding your own programmer definitions, which clutters the list, especially with multiple cores. 
+
 Status
 ===========
 
@@ -93,8 +100,8 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
 * If YOU ARE USING ARDUINO VERSION 1.6.2 (not 1.6.3 or later, nor 1.6.1 or earlier), delete platform.txt and rename platform_162.txt to platform.txt. In this case, you must follow the steps below to modify avrdude.conf. I strongly recommend updating if you are still using 1.6.2, as this version has serious defects in the loading of third party hardware definitions.
 * At this point, the core should work!
 
-### 1.0.x, and 1.6.x if you get unknown part errors
-On 1.6.x, if platform.txt is correctly used by the IDE, you will not need to perform these steps, however this functionality of the IDE is super-flaky. On 1.0.x, this step is always required. 
+### 1.0.x-specific additional steps
+Modifying avrdude.conf should no longer be necessary, ever as of 8/22/2015 changes. 
 
 * Windows
 

@@ -1,32 +1,26 @@
-avrispv2.name=AVR ISP v2
-avrispv2.communication=serial
-avrispv2.protocol=avrispv2
-dragon.name=AVR Dragon in ISP mode
-dragon.communication=usb
-dragon.protocol=dragon_isp
-# See: http://code.google.com/p/arduino/wiki/Platforms
 
-avrisp.name=AVR ISP
+
+avrisp.name=AVR ISP (ATtiny Modern)
 avrisp.communication=serial
 avrisp.protocol=stk500v1
 
-avrispmkii.name=AVRISP mkII
-avrispmkii.communication=usb
-avrispmkii.protocol=stk500v2
+#avrispmkii.name=AVRISP mkII (ATtiny Modern)
+#avrispmkii.communication=usb
+#avrispmkii.protocol=stk500v2
 
-usbtinyisp.name=USBtinyISP
-usbtinyisp.protocol=usbtiny
+#usbtinyisp.name=USBtinyISP (ATtiny Modern)
+#usbtinyisp.protocol=usbtiny
 
-usbasp.name=USBasp
+usbasp.name=USBasp (ATtiny Modern)
 usbasp.communication=usb
 usbasp.protocol=usbasp
 
-parallel.name=Parallel Programmer
-parallel.protocol=dapa
-parallel.force=true
+#parallel.name=Parallel Programmer (ATtiny Modern)
+#parallel.protocol=dapa
+#parallel.force=true
 # parallel.delay=200
 
-arduinoasisp.name=Arduino as ISP
+arduinoasisp.name=Arduino as ISP (ATtiny Modern)
 arduinoasisp.communication=serial
 arduinoasisp.protocol=stk500v1
 arduinoasisp.speed=19200
