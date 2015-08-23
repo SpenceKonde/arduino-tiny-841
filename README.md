@@ -32,7 +32,7 @@ Status
 * SPI works. 
 * I2C/TWI hardware slave supported by WireS library: https://github.com/orangkucing/WireS
 * I2C/TWI software master appears to work: https://github.com/todbot/SoftI2CMaster
-* On the Tiny1634, there is a USI, which should work with the existing USI libraries to function as I2C master. 
+* On the Tiny1634, there is a USI - use this library for I2C master: https://github.com/SpenceKonde/TinyWireM 
 * Pin change interrupts work.
 * On the 1634 and 841, when using the Optiboot bootloader, the Watchdog Timer interrupt vector will always point to the start of the program, and cannot be used for other functionality. Because the 1634 and 841 do not have built-in bootloader support, this is achieved with "virtual boot" feature of Optiboot. This bootloader rewrites the reset and WDT interrupt vectors, pointing the WDT vector at the start of the program (where the reset vector would have pointed), and the reset vector to the bootloader (as there is no BOOTRST fuse). This does not effect the 828 (it has hardware bootloader support), nor does it effect the 1634 or 841 if they are programmed via ISP.
 * Some people have problems programming it with USBAsp and TinyISP. I used to, but today I tried, having changed nothing, and my USBAsp works just fine. Funky stuff. ArduinoAsISP works reliably (albeit slowly)
