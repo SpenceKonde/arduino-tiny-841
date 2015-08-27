@@ -237,7 +237,7 @@ void delayMicroseconds(unsigned int us)
 	// 1 for assignment
 	// 3 for if statement
 	// 4 cycles for return from this function
-	// = 38 cycles to this point, 35 * 0.0678 = 2.5764us
+	// = 38 cycles to this point, 38cycles * 0.0678us/cycle = 2.5764us
 	// -2.5764us * 3.6875 loops/us = -9.5 loops
 	us -= 10; // -2 cycles, ~ -0.5 loops so -9.5 - 0.5 = -10 loops
 
