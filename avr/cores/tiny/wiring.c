@@ -235,7 +235,7 @@ void delayMicroseconds(unsigned int us)
 
 	// for a 1 microsecond delay, simply return.  the overhead
 	// of the function call takes 14 (16) cycles, which is 1.5us
-	if (us <= 1) return; //  = 3 cycles, (4 when true)
+	if (us <= 2) return; //  = 3 cycles, (4 when true)
 	// the following loop takes 4/11ths of a microsecond (4 cycles)
 	// per iteration, so execute it three times for each microsecond of
 	// delay requested.
@@ -245,13 +245,13 @@ void delayMicroseconds(unsigned int us)
 	// account for the time taken in the preceeding commands.
 	// we just burned 20 (22) cycles above, remove 5, (5*4=20)
   // us is at least 6 so we can substract 5
-	us -= 7; //2 cycles
+	us -= 5; //2 cycles
 #elif F_CPU >= 9200000L
 	// for the 9.2 MHz uart clock
 
 	// for a 1 microsecond delay, simply return.  the overhead
 	// of the function call takes 14 (16) cycles, which is 1.8us
-	if (us <= 1) return; //  = 3 cycles, (4 when true)
+	if (us <= 2) return; //  = 3 cycles, (4 when true)
 	// the following loop takes 4/11ths of a microsecond (4 cycles)
 	// per iteration, so execute it three times for each microsecond of
 	// delay requested.
@@ -261,7 +261,7 @@ void delayMicroseconds(unsigned int us)
 	// account for the time taken in the preceeding commands.
 	// we just burned 20 (22) cycles above, remove 5, (5*4=20)
   // us is at least 6 so we can substract 5
-	us -= 7; //2 cycles
+	us -= 5; //2 cycles
 #elif F_CPU >= 8000000L
 	// for the 8 MHz internal clock
 
