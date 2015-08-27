@@ -213,7 +213,34 @@ void delayMicroseconds(unsigned int us)
 	// account for the time taken in the preceeding commands.
 	// we just burned 19 (21) cycles above, remove 5, (5*4=20)
   // us is at least 8 so we can substract 5
-	us -= 5; // = 2 cycles, 
+	us -= 5; // = 2 cycles,
+
+#elif F_CPU >= 14745600L
+	// For 14.7456MHz clock in high speed serial systems
+	// Each cycle ~ 0.0678us or about 14.75 cycles per millisecond
+
+	// for 1 microsecond delay, simply return.  the overhead
+	// of the function call takes 14 (16) cycles, which is 0.95us
+	if (us <= 1) return; //  = 3 cycles, (4 when true)
+
+	// each loop is ~0.27us, 3.6873 times around for each 1µs
+	us += (us<<1)+(us>>1)+(us>>3)+(us>>4); // x3.6875
+	// "us" variable now represents loops, not microseconds
+	if (us <= 10) return; // 3 cycles. 2us delays will be a little short
+
+	// correct loop count for processing of instructions
+	//
+	// 14 cycles for function call
+	// 3 cycles for if statement
+	// 9 cycles for shifts
+	// 4 for adds
+	// 1 for assignment
+	// 3 for if statement
+	// 4 cycles for return from this function
+	// = 38 cycles to this point, 35 * 0.0678 = 2.5764us
+	// -2.5764us * 3.6875 loops/us = -9.5 loops
+	us -= 10; // -2 cycles, ~ -0.5 loops so -9.5 - 0.5 = -10 loops
+
 #elif F_CPU >= 12000000L
 	// for the 12 MHz clock if somebody is working with USB
 
