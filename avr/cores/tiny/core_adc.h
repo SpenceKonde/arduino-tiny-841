@@ -42,18 +42,29 @@
   circuitry requires an input clock frequency between 50 kHz and 200 kHz to
   get maximum resolution.
 */
-#if F_CPU >= 11000000 
+
+#if F_CPU > 12000000L
+  // above 12mhz, prescale by 128, the highest prescaler available
   #define ADC_ARDUINO_PRESCALER   ADC_Prescaler_Value_128
-#elif F_CPU == 8000000
+#elif F_CPU >= 6000000L
+  // 12 MHz / 64 ~= 188 KHz
   // 8 MHz / 64 = 125 KHz
   #define ADC_ARDUINO_PRESCALER   ADC_Prescaler_Value_64
-#elif F_CPU == 1000000
+#elif F_CPU >= 3000000L
+  // 4 MHz / 32 = 125 KHz
+  #define ADC_ARDUINO_PRESCALER   ADC_Prescaler_Value_32
+#elif F_CPU >= 1500000L
+  // 2 MHz / 16 = 125 KHz
+  #define ADC_ARDUINO_PRESCALER   ADC_Prescaler_Value_16
+#elif F_CPU >= 750000L
   // 1 MHz / 8 = 125 KHz
   #define ADC_ARDUINO_PRESCALER   ADC_Prescaler_Value_8
-#else
-  #error Add an entry for the selected processor speed.
+#elif F_CPU < 400000L
+  // 128 kHz / 2 = 64 KHz -> This is the closest you can get, the prescaler is 2
+  #define ADC_ARDUINO_PRESCALER   ADC_Prescaler_Value_2
+#else //speed between 400khz and 750khz
+  #define ADC_ARDUINO_PRESCALER   ADC_Prescaler_Value_4 //prescaler of 4
 #endif
-
 typedef enum
 {
   ADC_Prescaler_Value_2      = B001,
