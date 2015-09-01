@@ -1,4 +1,4 @@
-ATTiny Modern - 441, 841, 828, 1634
+ATTiny Modern - 441, 841, 828, 1634 for Arduino 1.6.x (1.6.3+ recommended)
 ============
 
 A fork of shimniok's ( github.com/shimniok ) fork of arduino-tiny, which made an attempt to support the Tiny841. All work appears to have stopped on that core, and it was never in a state where sketches could be compiled (it looks like the initial work was never completed). 
@@ -97,6 +97,13 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
   core...
 
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\cores\
+      
+
+You want it to look like this:
+
+![core installation](http://drazzy.com/e/img/coreinstall.jpg "You want it to look like this")
+
+
 * If YOU ARE USING ARDUINO VERSION 1.6.2 (not 1.6.3 or later, nor 1.6.1 or earlier), delete platform.txt and rename platform_162.txt to platform.txt. In this case, you must follow the steps below to modify avrdude.conf. I strongly recommend updating if you are still using 1.6.2, as this version has serious defects in the loading of third party hardware definitions.
 * At this point, the core should work!
 
