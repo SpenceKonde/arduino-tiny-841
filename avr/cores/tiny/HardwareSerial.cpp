@@ -42,7 +42,7 @@
 #if (RAMEND < 1000)
   #define RX_BUFFER_SIZE 32
 #else
-  #define RX_BUFFER_SIZE 128
+  #define RX_BUFFER_SIZE 64
 #endif
 
 struct ring_buffer
