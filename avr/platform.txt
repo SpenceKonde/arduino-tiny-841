@@ -79,7 +79,7 @@ recipe.size.regex.eeprom=^(?:\.eeprom)\s+([0-9]+).*
 
 tools.avrdude.path={runtime.tools.avrdude.path}
 tools.avrdude.cmd.path={path}/bin/avrdude
-tools.avrdude.config.path={runtime.hardware.path}/avrdude.conf
+tools.avrdude.config.path={runtime.platform.path}/avrdude.conf
 
 tools.avrdude.upload.params.verbose=-v
 tools.avrdude.upload.params.quiet=-q -q

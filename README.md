@@ -10,12 +10,7 @@ Additionally, it brings in support for the ATTiny1634, brought in from rambo's 1
 *AS OF 7/9/2015 PLEASE RE-BURN BOOTLOADER TO ANY 8MHZ BOARDS*
 I was too ambitious trying to make these work at 115200 baud upload, and it wound up being incredibly picky. Seems to work reliably at 57600. 
 
-(as of 8/22/2015, I finally figured out how this worked)
-*WHEN BURNING BOOTLOADER OR UPLOADING WITHOUT BOOTLOADER, SELECT PROGRAMMER MARKED ATTINY MODERN FROM TOOLS->PROGRAMMER*
-The others WILL NOT WORK for most of these chips. 
-In the interest of keeping the menu clean, only the most popular programmers are enabled by default. If you want one of the others, you can uncomment it's entry in programmers.txt. 
-
-Unfortunately, it's not possible to tell it to use a different version of avrdude.conf without adding your own programmer definitions, which clutters the list, especially with multiple cores. 
+*As of 9/21/2015, normal programmers now use the correct avrdude.conf file, and the extra entries in the programmers menu are no longer added
 
 Status
 ===========
@@ -62,7 +57,14 @@ Suitable breakout boards can be purchased from my Tindie shop:
 Installation
 ============
 
-### All versions
+### Via Board Manager
+
+This core can be installed using the board manager. The board manager URL is:
+
+`http://drazzy.com/package-drazzy.com-index.json`
+
+
+### Manual/All Version
 
 First ensure the Arduino software is correctly installed, and that the IDE is not running during the installation process. 
 
@@ -80,7 +82,7 @@ First ensure the Arduino software is correctly installed, and that the IDE is no
   After extracting, the following files / folders should exist...
 
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\LICENSE
-      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avrdude.conf
+      C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\avrdude.conf
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avrdude_conf16x.txt
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avrdude_conf106.txt
       C:\Users\YourName\Documents\Arduino\hardware\arduino-tiny-841\avr\Boards106.txt
