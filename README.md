@@ -29,13 +29,16 @@ Status
 Pin Mapping
 ============
 
+### ATtiny 441/841
 ![x41 pin mapping](http://drazzy.com/e/img/Tiny841.jpg "Arduino Pin Mapping for ATTiny 841 and 441")
-
+### ATtiny 1634
 ![1634 pin mapping](http://drazzy.com/e/img/Tiny1634.jpg "Arduino Pin Mapping for ATTiny 1634")
+
+### ATtiny 828
 
 ```
 
-ATTiny 828 pin mapping. All pin numbers match ADC and PCINT numbers
+ATtiny 828 pin mapping. All pin numbers match ADC and PCINT numbers
 
 //             16*   26   24   14
 //          17    27   25   15
