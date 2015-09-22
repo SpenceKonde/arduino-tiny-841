@@ -87,7 +87,7 @@ Installation
 
 This core can be installed using the board manager. The board manager URL is:
 
-`http://drazzy.com/package-drazzy.com-index.json`
+`http://drazzy.com/package_drazzy.com_index.json`
 
 
 ### Manual/All Version
