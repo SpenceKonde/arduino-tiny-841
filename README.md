@@ -15,24 +15,47 @@ I was too ambitious trying to make these work at 115200 baud upload, and it woun
 Status
 ===========
 
-* Optiboot bootloader included, and works on the '841 (8, 16, 20mhz), and 1634 (8, 12, 16mhz), 828 (8mhz)
-* Board definitions for 441/841 @ 1, 8, 12, 16, 20mhz, 1634 @ 1, 8, 12, 16 mhz, 828 @ 1, 8 mhz (it doesn't support a crystal)
-* Serial and Serial1 work. 
-* INPUT_PULLUP works
-* millis and micros work
-* analogRead() works
-* PWM works on all 6 channels (4 for 1634, naturally). 
-* EEPROM works.
-* tone is untested. 
-* SPI works. 
-* I2C/TWI hardware slave supported by WireS library: https://github.com/orangkucing/WireS
-* I2C/TWI software master appears to work: https://github.com/todbot/SoftI2CMaster
-* On the Tiny1634, there is a USI - use this library for I2C master: https://github.com/SpenceKonde/TinyWireM 
-* Pin change interrupts work.
+* Optiboot bootloader included, and works on the 441/841 (7.37, 8, 9.216, 11.056, 12, 14.74, 16, 18.43, and 20mhz), and 1634 (7.37, 8, 9.216, 11.056, 12, 14.74 and 16mhz), 828 (8mhz)
+* Board definitions for non-optiboot 441/841 @ 1, 7.37, 8, 9.216, 11.056, 12, 14.74, 16, 18.43, 20mhz, and the 1634 @ 7.37, 8, 9.216, 11.056, 12, 14.74 and 16mhz, 828 @ 1, 8 mhz (it doesn't support a crystal)
+* Tone is untested on all chips. Please report any problems.
+* SPI (441/841/828), Serial (all), and Serial1 (441/841/1634) work. 
+* I2C/TWI hardware slave on 441/841/828 supported by WireS library: https://github.com/orangkucing/WireS for 441/841/828
+* I2C/TWI software master on 441/841/828 works: https://github.com/todbot/SoftI2CMaster
+* USI for 1634 can be used for I2C - use this library for I2C master: https://github.com/SpenceKonde/TinyWireM 
 * On the 1634 and 841, when using the Optiboot bootloader, the Watchdog Timer interrupt vector will always point to the start of the program, and cannot be used for other functionality. Because the 1634 and 841 do not have built-in bootloader support, this is achieved with "virtual boot" feature of Optiboot. This bootloader rewrites the reset and WDT interrupt vectors, pointing the WDT vector at the start of the program (where the reset vector would have pointed), and the reset vector to the bootloader (as there is no BOOTRST fuse). This does not effect the 828 (it has hardware bootloader support), nor does it effect the 1634 or 841 if they are programmed via ISP.
-* Some people have problems programming it with USBAsp and TinyISP. I used to, but today I tried, having changed nothing, and my USBAsp works just fine. Funky stuff. ArduinoAsISP works reliably (albeit slowly)
+* Some people have problems programming it with USBAsp and TinyISP - but this is not readily reproducible ArduinoAsISP works reliably.
 * Optiboot without the LED blink (noLED) for 841 included; this saves 64 bytes of flash (not used by default - modify boards.txt if needed)
-* Board Manager support planned once the dust around that feature settles. 
+
+Pin Mapping
+============
+
+![x41 pin mapping](http://drazzy.com/e/img/Tiny841.jpg "Arduino Pin Mapping for ATTiny 841 and 441")
+
+![1634 pin mapping](http://drazzy.com/e/img/Tiny1634.jpg "Arduino Pin Mapping for ATTiny 1634")
+
+```
+
+ATTiny 828 pin mapping. All pin numbers match ADC and PCINT numbers
+
+//             16*   26   24   14
+//          17    27   25   15
+//             PC0  PD2  PD0  PB6
+//          PC1  PD3  PD1   PB7
+//             _________________
+// 18 RX  PC2 | *               | PB5   13
+// 19 TX  PC3 |                 | PB4   12
+// 20 *   PC4 |                 | PB3   11
+//        VCC |                 | GND
+//        GND |                 | PB2   10
+// 21 *   PC5 |                 | PB1    9
+// 22 *   PC6 |                 | AVCC
+// 23     PC7 |_________________| PB0    8
+//           PA0  PA2  PA4  PA6 
+//              PA1  PA3  PA5  PA7
+//            0     2    4    6
+//               1     3    5    7
+
+```
 
 
 Hardware
