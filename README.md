@@ -10,7 +10,7 @@ Additionally, it brings in support for the ATTiny1634, brought in from rambo's 1
 *AS OF 7/9/2015 PLEASE RE-BURN BOOTLOADER TO ANY 8MHZ BOARDS*
 I was too ambitious trying to make these work at 115200 baud upload, and it wound up being incredibly picky. Seems to work reliably at 57600. 
 
-*As of 9/21/2015, normal programmers now use the correct avrdude.conf file, and the extra entries in the programmers menu are no longer added
+**When uploading sketches via ISP, due to limitations of the Arduino IDE, you must select a programmer marked ATTiny Classic or ATTiny Modern from the programmers menu (or any other programmer added by an installed third party core) in order to upload properly to most parts.**
 
 Status
 ===========
