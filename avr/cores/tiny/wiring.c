@@ -136,8 +136,13 @@ unsigned long micros()
     m++;
 
   SREG = oldSREG;
-  
+#if (MillisTimer_Prescale_Value % clockCyclesPerMicrosecond() == 0 )
   return ((m << 8) + t) * (MillisTimer_Prescale_Value / clockCyclesPerMicrosecond());
+#else
+  n=m%clockCyclesPerMicrosecond();
+  m=m*MillisTimer_Prescale_Value / clockCyclesPerMicrosecond();
+  return (m<<8)+((((n<<8)+t)*MillisTimer_Prescale_Value) / clockCyclesPerMicrosecond());
+#endif
 }
 
 void delay(unsigned long ms)
