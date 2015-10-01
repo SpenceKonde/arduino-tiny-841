@@ -132,16 +132,24 @@ unsigned long micros()
   m = millis_timer_overflow_count;
   t = MillisTimer_GetCount();
   
-  if (MillisTimer_IsOverflowSet() && (t < 255))
+  if (MillisTimer_IsOverflowSet() && (t < 255)){
     m++;
+  }
 
   SREG = oldSREG;
-#if (MillisTimer_Prescale_Value % clockCyclesPerMicrosecond() == 0 )
+#if (MillisTimer_Prescale_Value % clockCyclesPerMicrosecond() == 0 ) //Can we just do it the naive way? If so great!
   return ((m << 8) + t) * (MillisTimer_Prescale_Value / clockCyclesPerMicrosecond());
-#else
-  n=m%clockCyclesPerMicrosecond();
-  m=m*MillisTimer_Prescale_Value / clockCyclesPerMicrosecond();
-  return (m<<8)+((((n<<8)+t)*MillisTimer_Prescale_Value) / clockCyclesPerMicrosecond());
+#else //Otherwise we have a problem. 
+  //Integer division precludes the above technique. 
+  //so we have to get a bit more creative. 
+  //We can't just remove the parens, because then it will overflow (MillisTimer_Prescale_Value) times more often than unsigned longs should, so overflows would break everything. 
+  //So what we do here is:
+  //the high part gets divided by cCPuS then multiplied by the prescaler. Then take the low 8 bits plus the high part modulo-cCPuS to correct for the division, then multiply that by the prescaler value first before dividing by cCPuS, and finally add the two together.
+  return ((m << 8 )/clockCyclesPerMicrosecond()* MillisTimer_Prescale_Value) + ((((unsigned long)t)+((m<<8)%clockCyclesPerMicrosecond())) * MillisTimer_Prescale_Value / clockCyclesPerMicrosecond());
+  //This doesn't work, and I don't know why:
+  //return ((m*(unsigned long)MillisTimer_Prescale_Value / (unsigned long)clockCyclesPerMicrosecond())<<8)+(((unsigned long)t+((m%11)<<8)) * (unsigned long)MillisTimer_Prescale_Value / (unsigned long)clockCyclesPerMicrosecond());
+  //This works without the loss of precision, but eats an extra 380 bytes of flash
+  //return (((long long)((m << 8) + t)) * MillisTimer_Prescale_Value / clockCyclesPerMicrosecond()); //very disappointing fix, eats an extra 380 bytes of flash because of long long
 #endif
 }
 
