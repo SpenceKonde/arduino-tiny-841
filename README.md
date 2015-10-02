@@ -79,7 +79,9 @@ Suitable breakout boards can be purchased from my Tindie shop:
 
 841: https://www.tindie.com/products/DrAzzy/attiny84184-breakout/ 
 
-1634: https://www.tindie.com/products/DrAzzy/attiny1634-breakout-wserial-header-bare-board/ (restock expected between 6/17 and 6/20/2015)
+1634: https://www.tindie.com/products/DrAzzy/attiny1634-breakout-wserial-header-bare-board/
+
+828: https://www.tindie.com/products/DrAzzy/atmega-x8attiny-x8828atmega-x8pb-breakout/
 
 Installation
 ============
