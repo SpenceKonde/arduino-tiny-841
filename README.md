@@ -22,8 +22,6 @@ Status
 * I2C/TWI hardware slave on 441/841/828 supported by WireS library: https://github.com/orangkucing/WireS for 441/841/828
 * I2C/TWI software master on 441/841/828 works: https://github.com/todbot/SoftI2CMaster
 * USI for 1634 can be used for I2C - use this library for I2C master: https://github.com/SpenceKonde/TinyWireM 
-* On the 1634 and 841, when using the Optiboot bootloader, the Watchdog Timer interrupt vector will always point to the start of the program, and cannot be used for other functionality. Because the 1634 and 841 do not have built-in bootloader support, this is achieved with "virtual boot" feature of Optiboot. This bootloader rewrites the reset and WDT interrupt vectors, pointing the WDT vector at the start of the program (where the reset vector would have pointed), and the reset vector to the bootloader (as there is no BOOTRST fuse). This does not effect the 828 (it has hardware bootloader support), nor does it effect the 1634 or 841 if they are programmed via ISP.
-* Some people have problems programming it with USBAsp and TinyISP - but this is not readily reproducible ArduinoAsISP works reliably.
 * Optiboot without the LED blink (noLED) for 841 included; this saves 64 bytes of flash (not used by default - modify boards.txt if needed)
 * Optiboot on serial 1 for 841, 1634 included, these are postfixed with "ser1". These must be flashed manually or modify boards.txt. 
 
@@ -82,6 +80,16 @@ Suitable breakout boards can be purchased from my Tindie shop:
 1634: https://www.tindie.com/products/DrAzzy/attiny1634-breakout-wserial-header-bare-board/
 
 828: https://www.tindie.com/products/DrAzzy/atmega-x8attiny-x8828atmega-x8pb-breakout/
+
+Caveats
+============
+
+* On the 1634 and 841, when using the Optiboot bootloader, the Watchdog Timer interrupt vector will always point to the start of the program, and cannot be used for other functionality. Because the 1634 and 841 do not have built-in bootloader support, this is achieved with "virtual boot" feature of Optiboot. This bootloader rewrites the reset and WDT interrupt vectors, pointing the WDT vector at the start of the program (where the reset vector would have pointed), and the reset vector to the bootloader (as there is no BOOTRST fuse). This does not effect the 828 (it has hardware bootloader support), nor does it effect the 1634 or 841 if they are programmed via ISP.
+* Some people have problems programming it with USBAsp and TinyISP - but this is not readily reproducible ArduinoAsISP works reliably. In some cases, it has been found that connecting reset to ground while using the ISP programmer fixes things (particularly when using the USBAsp with eXtremeBurner AVR) - if doing this, you must release reset (at least momentarily) after each batch of programming operation. 
+* Even the ATTiny1634R chips, with the supposedly better-calibrated internal oscillator, are occasionally unable to do serial communication at 57600 baud.
+* When using weird clock frequencies (ones with a frequency (in mhz) by which 64 cannot be divided evenly), micros() is *SLOW* and the program code takes up a few hundred extra bytes, because division is required (with normal clock frequencies, the compiler can simplify it to multiplication)
+
+
 
 Installation
 ============
