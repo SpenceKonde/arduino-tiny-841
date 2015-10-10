@@ -24,7 +24,7 @@
   Modified 28-08-2009 for attiny84 R.Wiersma
   Modified 14-10-2009 for attiny45 Saposoft
   Modified 20-11-2010 - B.Cook - Rewritten to use the various Veneers.
-  Modified 19-08-2015 for Attiny841/1634/828 and for uart clock support S. Konde
+  Modified 2015 for Attiny841/1634/828 and for uart clock support S. Konde
 */
 
 #include "core_build_options.h"
@@ -139,7 +139,19 @@ unsigned long micros()
   SREG = oldSREG;
 #if (MillisTimer_Prescale_Value % clockCyclesPerMicrosecond() == 0 ) //Can we just do it the naive way? If so great!
   return ((m << 8) + t) * (MillisTimer_Prescale_Value / clockCyclesPerMicrosecond());
-#else //Otherwise we have a problem. 
+//Otherwise we have a problem.
+#elif (MillisTimer_Prescale_Value == 64 && clockCyclesPerMicrosecond() == 11)
+  m=(m << 8) + t;
+  return m+(m<<2)+(m>>1)+(m>>2);
+#elif (MillisTimer_Prescale_Value == 64 && clockCyclesPerMicrosecond() == 12)
+  m=(m << 8) + t;
+  return m+(m<<2)+(m>>2)+(m>>4);
+#elif (MillisTimer_Prescale_Value == 64 && clockCyclesPerMicrosecond() == 20)
+  m=(m << 8) + t;
+  return m+(m<<1)+(m>>2)-(m>>4);
+#elif (MillisTimer_Prescale_Value == 64 && clockCyclesPerMicrosecond() == 9) //for 9mhz, this is a little off, but for 9.21, it's very close!
+  return ((m << 8) + t) * (MillisTimer_Prescale_Value / clockCyclesPerMicrosecond());
+#else
   //return ((m << 8) + t) * (MillisTimer_Prescale_Value / clockCyclesPerMicrosecond());
   //return ((m << 8) + t) * MillisTimer_Prescale_Value / clockCyclesPerMicrosecond();
   //Integer division precludes the above technique. 
