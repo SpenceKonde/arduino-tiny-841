@@ -234,7 +234,11 @@
 
 unsigned const int __attribute__((section(".version"))) 
 optiboot_version = 256*(OPTIBOOT_MAJVER + OPTIBOOT_CUSTOMVER) + OPTIBOOT_MINVER;
-
+#ifdef USE_TUNER
+const unsigned char ver[4] __attribute__ ((section (".version"))) = {0xFF, 0xFF, OPTIBOOT_MINVER, OPTIBOOT_MAJVER};
+#else
+const unsigned char ver[2] __attribute__ ((section (".version"))) = {OPTIBOOT_MINVER, OPTIBOOT_MAJVER};
+#endif
 
 #include <inttypes.h>
 #include <avr/io.h>
@@ -421,7 +425,13 @@ register uint8_t rstVect0_sav asm("r3"), rstVect1_sav asm("r4"),
 int main(void) {
   uint8_t ch;
 //  register uint8_t rstVect0_sav, rstVect1_sav, wdtVect0_sav, wdtVect1_sav;
-
+#ifdef USE_TUNER
+  ch = pgm_read_byte_near(ver);
+  if(ch != 255) {
+  ch = pgm_read_byte_near(ver+1);
+  OSCCAL = ch;
+  }
+#endif
   /*
    * Making these local and in registers prevents the need for initializing
    * them, and also saves space because code no longer stores to memory.
@@ -505,10 +515,17 @@ int main(void) {
        * Send optiboot version as "SW version"
        * Note that the references to memory are optimized away.
        */
+       #ifdef USE_TUNER
       if (which == 0x82) {
-	  putch(optiboot_version & 0xFF);
+	  putch(pgm_read_byte_near(ver+2));
       } else if (which == 0x81) {
-	  putch(optiboot_version >> 8);
+	  putch(pgm_read_byte_near(ver+3));
+       #else
+      if (which == 0x82) {
+	  putch(pgm_read_byte_near(ver));
+      } else if (which == 0x81) {
+	  putch(pgm_read_byte_near(ver+1));
+      #endif
       } else {
 	/*
 	 * GET PARAMETER returns a generic 0x03 reply for
