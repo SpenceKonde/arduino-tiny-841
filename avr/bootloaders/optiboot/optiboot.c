@@ -429,7 +429,11 @@ int main(void) {
   ch = pgm_read_byte_near(ver);
   if(ch != 255) {
   ch = pgm_read_byte_near(ver+1);
+  #ifdef OSCCAL
   OSCCAL = ch;
+  #else 
+  OSCCAL0 = ch;
+  #endif
   }
 #endif
   /*
