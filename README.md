@@ -12,6 +12,20 @@ I was too ambitious trying to make these work at 115200 baud upload, and it woun
 
 **When uploading sketches via ISP, due to limitations of the Arduino IDE, you must select a programmer marked ATTiny Classic or ATTiny Modern from the programmers menu (or any other programmer added by an installed third party core) in order to upload properly to most parts.**
 
+Board Manager Installation
+============
+
+This core can be installed using the board manager. The board manager URL is:
+
+`http://drazzy.com/package_drazzy.com_index.json`
+
+1. File -> Preferences, enter the above URL in "Additional Board Manager URLs"
+2. Tools -> Boards -> Board Manager...
+  *If using 1.6.6, close board manager and re-open it (see below)
+3. Select ATTinyCore (Modern) and click "Install". 
+
+Due to [a bug](https://github.com/arduino/Arduino/issues/3795) in 1.6.6 of the Arduino IDE, new board manager entries are not visible the first time Board Manager is opened after adding a new board manager URL. 
+
 Status
 ===========
 
@@ -90,17 +104,11 @@ Caveats
 * When using weird clock frequencies (ones with a frequency (in mhz) by which 64 cannot be divided evenly), micros() is 4-5 times slower (~110 clocks); it still reports the time at the point when it was called, not the end, however, and the time it gives is pretty close to reality (w/in 1% or so). This combination of performance and accuracy is the result of hand tuning for these clock speeds. For really weird clock speeds (ie, if you add your own), it will be slower still - hundreds of clock cycles - on the plus side, it still gives reasonably accurate numbers back even on exotic clock speeds, ("stock" micros() executes equally fast at all clock speeds, and just returns bogus values with anything that 64 doesn't divide evenly by) 
 
 
-Installation
+Manual Installation
 ============
 
-### Via Board Manager
 
-This core can be installed using the board manager. The board manager URL is:
-
-`http://drazzy.com/package_drazzy.com_index.json`
-
-
-### Manual/All Version
+### All Versions:
 
 First ensure the Arduino software is correctly installed, and that the IDE is not running during the installation process. 
 
@@ -143,7 +151,8 @@ You want it to look like this:
 
 
 * If YOU ARE USING ARDUINO VERSION 1.6.2 (not 1.6.3 or later, nor 1.6.1 or earlier), delete platform.txt and rename platform_162.txt to platform.txt. In this case, you must follow the steps below to modify avrdude.conf. I strongly recommend updating if you are still using 1.6.2, as this version has serious defects in the loading of third party hardware definitions.
-* At this point, the core should work!
+
+
 
 ### 1.0.x-specific additional steps
 Modifying avrdude.conf should no longer be necessary, ever as of 8/22/2015 changes. 
