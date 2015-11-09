@@ -10,21 +10,34 @@ Additionally, it brings in support for the ATTiny1634, brought in from rambo's 1
 *AS OF 7/9/2015 PLEASE RE-BURN BOOTLOADER TO ANY 8MHZ BOARDS*
 I was too ambitious trying to make these work at 115200 baud upload, and it wound up being incredibly picky. Seems to work reliably at 57600. 
 
-*As of 9/21/2015, normal programmers now use the correct avrdude.conf file, and the extra entries in the programmers menu are no longer added
+**When uploading sketches via ISP, due to limitations of the Arduino IDE, you must select a programmer marked ATTiny Classic or ATTiny Modern from the programmers menu (or any other programmer added by an installed third party core) in order to upload properly to most parts.**
+
+Board Manager Installation
+============
+
+This core can be installed using the board manager. The board manager URL is:
+
+`http://drazzy.com/package_drazzy.com_index.json`
+
+1. File -> Preferences, enter the above URL in "Additional Board Manager URLs"
+2. Tools -> Boards -> Board Manager...
+  *If using 1.6.6, close board manager and re-open it (see below)
+3. Select ATTinyCore (Modern) and click "Install". 
+
+Due to [a bug](https://github.com/arduino/Arduino/issues/3795) in 1.6.6 of the Arduino IDE, new board manager entries are not visible the first time Board Manager is opened after adding a new board manager URL. 
 
 Status
 ===========
 
 * Optiboot bootloader included, and works on the 441/841 (7.37, 8, 9.216, 11.056, 12, 14.74, 16, 18.43, and 20mhz), and 1634 (7.37, 8, 9.216, 11.056, 12, 14.74 and 16mhz), 828 (8mhz)
-* Board definitions for non-optiboot 441/841 @ 1, 7.37, 8, 9.216, 11.056, 12, 14.74, 16, 18.43, 20mhz, and the 1634 @ 7.37, 8, 9.216, 11.056, 12, 14.74 and 16mhz, 828 @ 1, 8 mhz (it doesn't support a crystal)
+* Board definitions for non-optiboot 441/841 @ 1, 4, 6, 7.37, 8, 9.216, 11.056, 12, 14.74, 16, 18.43, 20mhz, and the 1634 @1, 4, 6, 7.37, 8, 9.216, 11.056, 12, 14.74 and 16mhz, 828 @ 1, 8 mhz (it doesn't support a crystal)
 * Tone is untested on all chips. Please report any problems.
 * SPI (441/841/828), Serial (all), and Serial1 (441/841/1634) work. 
 * I2C/TWI hardware slave on 441/841/828 supported by WireS library: https://github.com/orangkucing/WireS for 441/841/828
 * I2C/TWI software master on 441/841/828 works: https://github.com/todbot/SoftI2CMaster
 * USI for 1634 can be used for I2C - use this library for I2C master: https://github.com/SpenceKonde/TinyWireM 
-* On the 1634 and 841, when using the Optiboot bootloader, the Watchdog Timer interrupt vector will always point to the start of the program, and cannot be used for other functionality. Because the 1634 and 841 do not have built-in bootloader support, this is achieved with "virtual boot" feature of Optiboot. This bootloader rewrites the reset and WDT interrupt vectors, pointing the WDT vector at the start of the program (where the reset vector would have pointed), and the reset vector to the bootloader (as there is no BOOTRST fuse). This does not effect the 828 (it has hardware bootloader support), nor does it effect the 1634 or 841 if they are programmed via ISP.
-* Some people have problems programming it with USBAsp and TinyISP - but this is not readily reproducible ArduinoAsISP works reliably.
 * Optiboot without the LED blink (noLED) for 841 included; this saves 64 bytes of flash (not used by default - modify boards.txt if needed)
+* Optiboot on serial 1 for 841, 1634 included, these are postfixed with "ser1". These must be flashed manually or modify boards.txt. 
 
 Pin Mapping
 ============
@@ -78,19 +91,24 @@ Suitable breakout boards can be purchased from my Tindie shop:
 
 841: https://www.tindie.com/products/DrAzzy/attiny84184-breakout/ 
 
-1634: https://www.tindie.com/products/DrAzzy/attiny1634-breakout-wserial-header-bare-board/ (restock expected between 6/17 and 6/20/2015)
+1634: https://www.tindie.com/products/DrAzzy/attiny1634-breakout-wserial-header-bare-board/
 
-Installation
+828: https://www.tindie.com/products/DrAzzy/atmega-x8attiny-x8828atmega-x8pb-breakout/
+
+Caveats
 ============
 
-### Via Board Manager
+* On the 1634 and 841, when using the Optiboot bootloader, the Watchdog Timer interrupt vector will always point to the start of the program, and cannot be used for other functionality. Because the 1634 and 841 do not have built-in bootloader support, this is achieved with "virtual boot" feature of Optiboot. This bootloader rewrites the reset and WDT interrupt vectors, pointing the WDT vector at the start of the program (where the reset vector would have pointed), and the reset vector to the bootloader (as there is no BOOTRST fuse). This does not effect the 828 (it has hardware bootloader support), nor does it effect the 1634 or 841 if they are programmed via ISP.
+* Some people have problems programming it with USBAsp and TinyISP - but this is not readily reproducible ArduinoAsISP works reliably. In some cases, it has been found that connecting reset to ground while using the ISP programmer fixes things (particularly when using the USBAsp with eXtremeBurner AVR) - if doing this, you must release reset (at least momentarily) after each batch of programming operation. 
+* At >4v, the speed of the internal oscillator on 1634R and 841 parts increases significantly - enough that neither serial (and hence the bootloader) does not work. It is recommended to run at 3.3v if using internal RC oscillator as a clock source. A future release may include an 8.1mhz internal RC @5v option, with it's own bootloader. 
+* When using weird clock frequencies (ones with a frequency (in mhz) by which 64 cannot be divided evenly), micros() is 4-5 times slower (~110 clocks); it still reports the time at the point when it was called, not the end, however, and the time it gives is pretty close to reality (w/in 1% or so). This combination of performance and accuracy is the result of hand tuning for these clock speeds. For really weird clock speeds (ie, if you add your own), it will be slower still - hundreds of clock cycles - on the plus side, it still gives reasonably accurate numbers back even on exotic clock speeds, ("stock" micros() executes equally fast at all clock speeds, and just returns bogus values with anything that 64 doesn't divide evenly by) 
 
-This core can be installed using the board manager. The board manager URL is:
 
-`http://drazzy.com/package_drazzy.com_index.json`
+Manual Installation
+============
 
 
-### Manual/All Version
+### All Versions:
 
 First ensure the Arduino software is correctly installed, and that the IDE is not running during the installation process. 
 
@@ -133,7 +151,8 @@ You want it to look like this:
 
 
 * If YOU ARE USING ARDUINO VERSION 1.6.2 (not 1.6.3 or later, nor 1.6.1 or earlier), delete platform.txt and rename platform_162.txt to platform.txt. In this case, you must follow the steps below to modify avrdude.conf. I strongly recommend updating if you are still using 1.6.2, as this version has serious defects in the loading of third party hardware definitions.
-* At this point, the core should work!
+
+
 
 ### 1.0.x-specific additional steps
 Modifying avrdude.conf should no longer be necessary, ever as of 8/22/2015 changes. 
