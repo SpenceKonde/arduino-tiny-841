@@ -34,8 +34,8 @@ Status
 * Tone is untested on all chips. Please report any problems.
 * SPI (441/841/828), Serial (all), and Serial1 (441/841/1634) work. 
 * I2C/TWI hardware slave on 441/841/828 supported by WireS library: https://github.com/orangkucing/WireS for 441/841/828
-* I2C/TWI software master on 441/841/828 works: https://github.com/todbot/SoftI2CMaster
-* USI for 1634 can be used for I2C - use this library for I2C master: https://github.com/SpenceKonde/TinyWireM 
+* I2C/TWI software master on 441/841/828 works: https://github.com/todbot/SoftI2CMaster - However, libraries must be adapted. See https://github.com/SpenceKonde/LiquidCrystal_I2C_Tiny for an example
+* USI for 1634 can be used for I2C - use this library for I2C master: https://github.com/SpenceKonde/TinyWireM  - However, libraries must be adapted. See https://github.com/SpenceKonde/LiquidCrystal_I2C_Tiny for an example
 * Optiboot without the LED blink (noLED) for 841 included; this saves 64 bytes of flash (not used by default - modify boards.txt if needed)
 * Optiboot on serial 1 for 841, 1634 included, these are postfixed with "ser1". These must be flashed manually or modify boards.txt. 
 
