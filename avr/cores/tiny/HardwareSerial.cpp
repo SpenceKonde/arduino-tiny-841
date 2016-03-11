@@ -283,7 +283,7 @@ size_t HardwareSerial::write(uint8_t c)
   #if defined(UBRRH) && defined(UBRRL)
     HardwareSerial Serial(&rx_buffer, &UBRRH, &UBRRL, &UCSRA, &UCSRB, &UCSRC, &UDR, RXEN, TXEN, RXCIE, UDRE, U2X);
   #elif defined(UBRR0H) && defined(UBRR0L)
-    HardwareSerial Serial(&rx_buffer, &UBRR0H, &UBRR0L, &UCSR0A, &UCSR0B, &UCSR0c, &UDR0, RXEN0, TXEN0, RXCIE0, UDRE0, U2X0);
+    HardwareSerial Serial(&rx_buffer, &UBRR0H, &UBRR0L, &UCSR0A, &UCSR0B, &UCSR0C, &UDR0, RXEN0, TXEN0, RXCIE0, UDRE0, U2X0);
   #elif defined(USBCON)
     #warning no serial port defined  (port 0)
   #else
