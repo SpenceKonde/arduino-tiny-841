@@ -188,7 +188,7 @@ HardwareSerial::HardwareSerial(ring_buffer *rx_buffer,
 
 // Public Methods //////////////////////////////////////////////////////////////
 
-void HardwareSerial::begin(long baud, byte config)
+void HardwareSerial::begin(unsigned long baud, byte config)
 {
   uint16_t baud_setting;
   bool use_u2x = true;
@@ -281,9 +281,9 @@ size_t HardwareSerial::write(uint8_t c)
 
 #if ! DEFAULT_TO_TINY_DEBUG_SERIAL
   #if defined(UBRRH) && defined(UBRRL)
-    HardwareSerial Serial(&rx_buffer, &UBRRH, &UBRRL, &UCSRA, &UCSRB, &UDR, RXEN, TXEN, RXCIE, UDRE, U2X);
+    HardwareSerial Serial(&rx_buffer, &UBRRH, &UBRRL, &UCSRA, &UCSRB, &UCSRC, &UDR, RXEN, TXEN, RXCIE, UDRE, U2X);
   #elif defined(UBRR0H) && defined(UBRR0L)
-    HardwareSerial Serial(&rx_buffer, &UBRR0H, &UBRR0L, &UCSR0A, &UCSR0B, &UDR0, RXEN0, TXEN0, RXCIE0, UDRE0, U2X0);
+    HardwareSerial Serial(&rx_buffer, &UBRR0H, &UBRR0L, &UCSR0A, &UCSR0B, &UCSR0c, &UDR0, RXEN0, TXEN0, RXCIE0, UDRE0, U2X0);
   #elif defined(USBCON)
     #warning no serial port defined  (port 0)
   #else
